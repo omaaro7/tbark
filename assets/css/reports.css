@@ -1,0 +1,78 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+:root {
+  --background-color: #eceff4;
+  --main-color: #f3f4f6;
+  --titles-color: rgb(1, 1, 1);
+  --second-color: #ff2949;
+  --thered-color: rgb(156 163 175);
+  --fourth-color: #6abff7;
+  --five-color: #ba9544;
+  --six-color: #4e3434;
+  --seven-color: #5c5470;
+  --eight-color: #1e76c4;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: main_font;
+  position: relative;
+
+}
+.header {
+  background-color: var(--main-color);
+  max-height: 10vh;
+  border-bottom: 3px solid var(--eight-color);
+}
+.logoAndName .logo img {
+  width: 50;
+  height: 62px;
+}
+.logoAndName .name {
+  color: var(--titles-color);
+}
+.profile .img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.main{
+  min-height: 85vh;
+}
+footer {
+  clear: both;
+  position: relative;
+  background-color: var(--thered-color);
+  color: var(--main-color);
+}
+footer img {
+  width: 60px;
+  height: 60px;
+}
+.pe{
+  background-color: rgb(0 126 255 / 61%);
+  border-radius: 8px;
+}
+.pe:nth-child(even){
+  background-color: rgb(255 0 0 / 46%);
+}
+.pe div{
+  color: var(--main-color);
+}
+@font-face {
+    font-family: main_font;
+    src: url(fonts/Almarai-Bold.ttf);
+  }
+  

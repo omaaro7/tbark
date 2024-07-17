@@ -1,0 +1,75 @@
+:root {
+  --background-color: #eceff4;
+  --main-color: #f3f4f6;
+  --titles-color: rgb(1, 1, 1);
+  --second-color: #ff687e;
+  --thered-color: rgb(156 163 175);
+  --fourth-color: #6abff7;
+  --five-color: #a7c6f5;
+  --six-color: #4e3434;
+  --seven-color: #5c5470;
+  --eight-color: #00ffdd;
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: main_font;
+  overflow-x: hidden;
+  position: relative;
+}
+.header {
+  background-color: var(--main-color);
+}
+.logoAndName .logo img {
+  width: 50;
+  height: 62px;
+}
+.logoAndName .name {
+  color: var(--titles-color);
+}
+.profile .img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.safe{
+  border: 5px solid var(--five-color);
+  height: fit-content;
+}
+.safe-img img {
+  width: 100px;
+  height: 90px;
+}
+.safe-type {
+  color: var(--fourth-color);
+}
+.all-money-a {
+  color: var(--second-color);
+}
+footer {
+  clear: both;
+  position: relative;
+  background-color: var(--thered-color);
+  color: var(--main-color);
+}
+footer img {
+  width: 60px;
+  height: 60px;
+}
+.pe{
+  background-color: rgb(0 126 255 / 61%);
+  border-radius: 8px;
+}
+.pe:nth-child(even){
+  background-color: rgb(255 0 0 / 46%);
+}
+.pe div{
+  color: var(--main-color);
+}
+@font-face {
+  font-family: main_font;
+  src: url(fonts/Almarai-Bold.ttf);
+}

@@ -1,0 +1,95 @@
+:root {
+  --background-color: #eceff4;
+  --main-color: #f3f4f6;
+  --titles-color: rgb(1, 1, 1);
+  --second-color: #ff2949;
+  --thered-color: rgb(156 163 175);
+  --fourth-color: #6abff7;
+  --five-color: #791aa5;
+  --six-color: #ff9100;
+  --seven-color: #a600ff;
+  --eight-color: #1e76c4;;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family:main_font ;
+  overflow-x: hidden;
+}
+.header {
+  background-color: var(--main-color);
+}
+.logoAndName .logo img{
+  width: 50;
+  height: 62px;
+}
+.logoAndName .name{
+  color: var(--titles-color);
+}
+.profile .img img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.items{
+  min-height: 85vh;
+}
+.items .item-container{
+  display: flex;
+  justify-content: center;
+}
+.items .item{
+  background-color: var(--second-color);
+  text-decoration: none;
+  border-radius: 20px;
+  transition: all 0.7s !important;
+}
+
+.items .item .icon i{
+  font-size: 50px;
+  color: var(--main-color);
+}
+.items .item .item-title p{
+  color: var(--main-color);
+}
+.items .item.ope , .items .item .icon.ope i, .items .item.ope .item-title p{
+  background-color: var(--six-color);
+}
+.items .item.rep , .items .item .icon.rep i, .items .item.rep .item-title p{
+  background-color: var(--five-color);
+}
+.items .item.use , .items .item .icon.use i, .items .item.use .item-title p{
+  background-color: var(--fourth-color);
+}
+.items .item.kh , .items .item .icon.kh i, .items .item.kh .item-title p{
+  background-color: var(--eight-color);
+}
+.items .item:hover{
+  transform: scale3d(1.05,1.05,1);
+  z-index: 1000;
+}
+footer {
+  background-color: var(--thered-color);
+  color: var(--main-color);
+}
+footer img {
+  width: 60px;
+  height: 60px;
+}
+.pe{
+  background-color: rgb(0 126 255 / 61%);
+  border-radius: 8px;
+}
+.pe:nth-child(even){
+  background-color: rgb(255 0 0 / 46%);
+}
+.pe div{
+  color: var(--main-color);
+}
+@font-face {
+  font-family: main_font;
+  src: url(fonts/Almarai-Bold.ttf);
+}

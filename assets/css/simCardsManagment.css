@@ -1,0 +1,289 @@
+:root {
+  --background-color: #eceff4;
+  --main-color: #f3f4f6;
+  --titles-color: rgb(1, 1, 1);
+  --second-color: #ff2949;
+  --thered-color: rgb(156 163 175);
+  --fourth-color: #6abff7;
+  --five-color: #ffa42d;
+  --six-color: #598f52;
+  --seven-color: #6d33ff;
+  --eight-color: #1e76c4;
+}
+body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: main_font;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+.header {
+  background-color: var(--main-color);
+}
+.logoAndName .logo img {
+  width: 50;
+  height: 62px;
+}
+.logoAndName .name {
+  color: var(--titles-color);
+}
+.profile .img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.simCardsShowAndEdit{
+  min-height: 85vh;
+}
+form {
+  padding: 10px 5px;
+  background-color: var(--eight-color);
+  border-radius: 10px;
+}
+form input {
+  background-color: var(--main-color);
+  padding: 7px 7px;
+  color: var(--titles-color);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+form input:focus {
+  border: none;
+  outline: none;
+}
+form input::placeholder {
+  color: var(--thered-color);
+}
+form button {
+  background-color: var(--second-color);
+  border: 2px solid var(--second-color);
+  color: var(--main-color);
+  padding: 7px 0;
+  border-radius: 5px;
+  transition: all 0.7s;
+}
+form button:hover {
+  background-color: transparent;
+  color: var(--second-color);
+}
+.table {
+  width: 85%;
+  border-collapse: collapse;
+  direction: rtl;
+  color: var(--titles-color);
+}
+
+.table td,
+.table th {
+  border: 1px solid var(--main-color);
+  text-align: center;
+  font-size: 16px;
+}
+
+.table th {
+  background-color: var(--eight-color);
+  color: var(--main-color) !important;
+}
+.table tbody tr.Vodafone td{
+  background-color: var(--second-color);
+}
+.table tbody tr.Orange td {
+  background-color: var(--five-color);
+}
+.table tbody tr.Etisalat td {
+  background-color: var(--six-color);
+}
+.table tbody tr.We td {
+  background-color: var(--seven-color);
+}
+.table tbody td {
+  color: var(--main-color);
+  padding-top: 8px;
+}
+.edit,
+.delete {
+  padding: 5px;
+  border-radius: 7px;
+  background-color: rgb(5, 91, 250);
+  cursor: pointer;
+  transition: all 0.6s;
+  color:var(--background-color);
+  border: none;
+}
+.delete {
+  background: var(--eight-color);
+  color: var(--main-color);
+}
+.edit:hover {
+  background-color: rgb(73, 137, 255);
+}
+.delete:hover {
+  background-color: #d15685;
+}
+.edit-main
+,.types-box-main {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000085;
+}
+.edit-main-box,
+.types-box {
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+.editing-form input {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  margin-top: 10px;
+  border-radius: 6px;
+  padding: 0 10px;
+}
+label {
+  margin-top: 10px;
+  color: var(--titles-color);
+}
+.editing-form button {
+  background-color: var(--second-color);
+  padding: 5px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+  color: var(--titles-color);
+  border: 2px solid var(--second-color);
+  transition: all 0.6s;
+}
+.editing-form button.cls{
+  background-color: var(--fourth-color);
+  border-color: var(--fourth-color);
+}
+.editing-form button:hover {
+  background-color: transparent;
+  color: var(--second-color);
+}
+
+.editing-form button.cls:hover {
+  color: var(--fourth-color);
+}
+.closer{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--second-color);
+  font-size: 30px;
+  cursor: pointer;
+}
+.closer i{
+  transition: all 0.6s;
+}
+.closer i:hover{
+  color: var(--fourth-color);
+}
+.type-item
+ {
+  background-color: var(--eight-color);
+  color: var(--main-color);
+  border-radius: 10px;
+  border: 2px solid var(--eight-color);
+  cursor: pointer;
+  transition: all 0.7s;
+}
+.type-item:hover{
+  background-color: transparent;
+  color: var(--eight-color);
+}
+.option{
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  color: var(--main-color);
+  transition: all 0.5s;
+}
+.option.delAll{
+  background-color: rgb(237, 90, 90);
+}
+.option.downExcel{
+  background-color: var(--eight-color);
+}
+.option.pdf{
+  background-color:var(--fourth-color);
+}
+.option.csv{
+  background-color:var(--seven-color);
+}
+.option:hover{
+  transform: scaleY(1.2);
+}
+footer {
+  clear: both;
+  position: relative;
+  background-color: var(--thered-color);
+  color: var(--main-color);
+}
+footer img {
+  width: 60px;
+  height: 60px;
+}
+.pe{
+  background-color: rgb(0 126 255 / 61%);
+  border-radius: 8px;
+}
+.pe:nth-child(even){
+  background-color: rgb(255 0 0 / 46%);
+}
+.pe div{
+  color: var(--main-color);
+}
+/*responsive*/
+
+@media (max-width: 500px) {
+  .table thead {
+    display: none;
+  }
+  .table {
+    display: block;
+    width: 90%;
+  }
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: left;
+    text-align: left;
+    position: relative;
+    display: flex;
+    justify-content: end;
+    z-index: -1;
+  }
+  .table td::after {
+    content: attr(data-label);
+    position: absolute;
+    right: 0;
+    padding-right: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: right;
+  }
+}
+
+@font-face {
+  font-family: main_font;
+  src: url(fonts/Almarai-Bold.ttf);
+}

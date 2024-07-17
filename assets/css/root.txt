@@ -1,0 +1,28 @@
+################################################### dark
+:root {                                           
+  --background-color: #080c14;                    
+  --main-color: #111827;
+  --titles-color: white;
+  --second-color: #7d0633;
+  --thered-color: rgb(31, 34, 38);
+  --fourth-color: #2465f0;
+  --five-color: #ba9544;
+  --six-color: #4e3434;
+  --seven-color: #5c5470;
+  --eight-color: #008170;
+}
+
+light 
+
+:root {
+  --background-color: #eceff4;
+  --main-color: #f3f4f6;
+  --titles-color: rgb(1, 1, 1);
+  --second-color: #ff2949;
+  --thered-color: rgb(44, 52, 63);
+  --fourth-color: #6abff7;
+  --five-color: #ba9544;
+  --six-color: #4e3434;
+  --seven-color: #5c5470;
+  --eight-color: #4bdac7;
+}
