@@ -107,6 +107,12 @@ body {
   background-color: var(--main-color);
   border: 3px solid var(--eight-color);
 }
+.drop-menu-shower,.drop-menu-shm{
+  background-color: var(--eight-color);
+  color: var(--main-color);
+  border-radius: 10px;
+}
+
 form {
   padding: 10px 5px;
   background-color: var(--eight-color);
