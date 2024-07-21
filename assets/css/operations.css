@@ -10,7 +10,7 @@ input[type="number"] {
 }
 :root {
   --background-color: #eceff4;
-  --main-color: #f3f4f6;
+  --main-color: #ffffff;
   --titles-color: rgb(1, 1, 1);
   --second-color: #ff2949;
   --thered-color: rgb(156 163 175);
@@ -263,9 +263,9 @@ label {
   color: var(--fourth-color);
 }
 .ope {
-  border: 2px solid var(--eight-color);
   background-color: var(--main-color);
-  border-radius: 10px;
+  border-radius: 7px;
+  box-shadow: -4px 3px 7px 5px #00000033;;
   transition: all 0.5s;
   font-size: 1em;
 }

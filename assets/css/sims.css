@@ -20,7 +20,13 @@ input[type="number"] {
   --seven-color: #5c5470;
   --eight-color: #1e76c4;
 }
-
+body{
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .main .right-side::-webkit-scrollbar
  {
   width:5px;
@@ -111,6 +117,26 @@ body {
   border-radius: 7px;
   box-shadow: -4px 3px 7px 5px #00000033;;
  
+}
+.seb{
+  height: 5px;
+  background-color: var(--eight-color);
+  margin-top: 8px;
+  border-radius: 4px;
+
+}
+.edit{
+  padding: 5px;
+  background-color: var(--eight-color);
+  border: 2px solid var(--eight-color);
+  color: var(--main-color);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.edit:hover{
+  background-color: transparent;
+  color: var(--eight-color);
 }
 .drop-menu-shower,.drop-menu-shm{
   background-color: var(--eight-color);
