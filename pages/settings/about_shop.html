@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../assets/css/all.css" />
+    <link rel="stylesheet" href="../../assets/css/aos.css" />
+    <link rel="stylesheet" href="../../assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="../../assets/css/sharp-light.css" />
+    <link rel="stylesheet" href="../../assets/css/sharp-regular.css" />
+    <link rel="stylesheet" href="../../assets/css/sharp-solid.css" />
+    <link rel="stylesheet" href="../../assets/css/sharp-thin.css" />
+    <link rel="stylesheet" href="../../assets/css/sweetalert2.css" />
+    <link rel="stylesheet" href="../../assets/css/switch.css" />
+    <link rel="stylesheet" href="../../assets/css/settings.css" />
+    <title>عن المحل</title>
+  </head>
+  <body>
+    <header
+      class="header py-2 col-12 d-flex px-3 justify-content-between align-items-center sticky-top"
+    >
+      <div class="logoAndName d-flex align-items-center">
+        <div class="logo"><img src="../../assets/imgs/logo.png" alt="" /></div>
+        <div class="name fs-5 py-2 me-3 d-none d-md-block">
+          إدارة فودافون كاش
+        </div>
+      </div>
+      <div class="name fs-4" style="color: var(--titles-color)">الاعدادات</div>
+      <div class="profile">
+        <div class="img">
+          <img src="../../assets/imgs/profile.jpg" alt="" />
+        </div>
+      </div>
+    </header>
+    <main
+      class="main col-12 d-flex justify-content-center justify-content-lg-end justify-content-between pe-0 pe-lg-2 px-2"
+    >
+      <div
+        class="right-side d-none d-lg-block col-lg-3 col-xl-2 py-3 px-3 mt-3"
+      >
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between"
+          href="index.html"
+        >
+          <span> عام</span><i class="fa-regular fa-gear"></i>
+        </a>
+        <a
+          href="simcards.html"
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+        >
+          <span>الخطوط</span><i class="fa-regular fa-sim-cards"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="operations.html"
+        >
+          <span>العمليات</span
+          ><i class="fa-sharp fa-regular fa-money-bill-wave"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="reports.html"
+        >
+          <span>التقارير</span
+          ><i class="fa-sharp fa-regular fa-file-chart-column"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="accounts.html"
+        >
+          <span>الحسابات</span><i class="fa-regular fa-users"></i>
+        </a>
+        <a
+          href="about_shop.html"
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3 active"
+        >
+          <span>عن المحل</span><i class="fa-regular fa-address-card"></i>
+        </a>
+      </div>
+      <div
+        class="left-side col-12 col-lg-9 col-xl-10 d-flex flex-column align-items-center py-3"
+      >
+        <div class="left-side-header col-12 text-center fs-5">عن المحل</div>
+        <div
+          class="left-side-content col-12 px-3 mt-2 d-flex flex-column align-items-center"
+        >
+          <div class="boxs col-12 d-flex flex-wrap">
+            <div
+              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-11 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center"
+                    >تغير اسم المحل</span
+                  >
+                </div>
+                <div class="box-content col-12">
+                  <form class="mt-1">
+                    <input
+                      type="text"
+                      class="input col-12"
+                      placeholder="الاسم الجديد"
+                    />
+                    <button class="col-12 mt-2">تم</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-11 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center"
+                    >تغير صورة المحل</span
+                  >
+                </div>
+                <div class="box-content col-12">
+                  <form class="mt-1">
+                    <label
+                      for="img"
+                      class="im col-12 py-1 d-flex align-items-center justify-content-center"
+                      >رقع الصوره<i class="fa-light fa-image pe-1"></i
+                    ></label>
+                    <input
+                      type="file"
+                      accept="image/png, image/jpeg"
+                      class="input d-none"
+                      placeholder="الاسم الجديد"
+                      id="img"
+                    />
+                    <button class="col-12 mt-2">تم</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-11 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center"
+                    >تغير عنوان المحل</span
+                  >
+                </div>
+                <div class="box-content col-12">
+                  <form class="mt-1">
+                    <input
+                      type="text"
+                      class="input col-12"
+                      placeholder="العنوان الجديد"
+                    />
+                    <button class="col-12 mt-2">تم</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-11 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center"
+                    >تغير رقم الاداره</span
+                  >
+                </div>
+                <div class="box-content col-12">
+                  <form class="mt-1">
+                    <input
+                      type="number"
+                      class="input col-12"
+                      placeholder="الرقم الجديد"
+                      minlength="11"
+                      maxlength="11"
+                    />
+                    <button class="col-12 mt-2">تم</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-11 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center"
+                    >تغير اسم المدير</span
+                  >
+                </div>
+                <div class="box-content col-12">
+                  <form class="mt-1">
+                    <input
+                      type="text"
+                      class="input col-12"
+                      placeholder="الاسم الجديد"
+                    />
+                    <button class="col-12 mt-2">تم</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box col-12 end d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-12 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center">
+                    البيانات الحاليه</span
+                  >
+                </div>
+                <div
+                  class="box-content col-12 d-flex flex-wrap align-items-center justify-content-between"
+                >
+                  <div
+                    class="info-img col-12 mt-2 d-flex justify-content-center"
+                  >
+                    <img
+                      src="../../assets/imgs/profile.jpg"
+                      alt=""
+                      class="img-info"
+                      style="width: 100px; height: 100px; border-radius: 50%"
+                    />
+                  </div>
+                  <div class="info-box col-12 col-lg-6 d-flex mt-3">
+                    <div class="info-title">اسم المحل :</div>
+                    <div class="info-main">تبارك تكنو شوب</div>
+                  </div>
+                  <div class="info-box col-12 col-lg-6 d-flex mt-3">
+                    <div class="info-title">عنوان المحل :</div>
+                    <div class="info-main">
+                      دمياط الجديده , شارع الصعيدي القديم
+                    </div>
+                  </div>
+                  <div class="info-box col-12 col-lg-6 d-flex mt-3">
+                    <div class="info-title">اسم المدير :</div>
+                    <div class="info-main">احمد بدوي</div>
+                  </div>
+                  <div class="info-box col-12 col-lg-6 d-flex mt-3">
+                    <div class="info-title">رقم المدير :</div>
+                    <div class="info-main">01097178081</div>
+                  </div>
+                  <div class="info-box col-12 mt-3 d-flex justify-content-center">
+                    <a href="../../report" class="px-2 py-1"> <button class="px-2 py-1">تحميل البيانات</button></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="col-12 py-3">
+      <div class="social col-12 d-flex justify-content-center">
+        <div class="faceBook ms-2">
+          <a href="https://www.facebook.com/omar.wafeek.526">
+            <img src="../../assets/imgs/facebook.png" alt="" />
+          </a>
+        </div>
+        <div class="whatsApp">
+          <a href="https://wa.me/+201097178081">
+            <img src="../../assets/imgs/whatsApp.png" alt="" />
+          </a>
+        </div>
+        <div class="gitHub me-2">
+          <a href="https://github.com/omaaro7">
+            <img src="../../assets/imgs/github.png" alt="" />
+          </a>
+        </div>
+      </div>
+      <p class="col-12 text-center mt-2 mb-0">
+        all copy rights reverse to omar wafeek &copy;
+      </p>
+    </footer>
+    <script src="../../assets/js/bootstrap.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/tools/sweetalert2.js"></script>
+    <script src="../../assets/js/tools/sheet.js"></script>
+    <script
+      type="module"
+      src="../../assets/js/tools/createDateAndTimeAndDay.js"
+    ></script>
+    <script src="../../assets/js/tools/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

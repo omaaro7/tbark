@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../assets/css/sweetalert2.css" />
     <link rel="stylesheet" href="../../assets/css/switch.css" />
     <link rel="stylesheet" href="../../assets/css/settings.css" />
-    <title>الاعدادات</title>
+    <title>العمليات</title>
   </head>
   <body>
     <header
@@ -35,214 +35,83 @@
     <main
       class="main col-12 d-flex justify-content-center justify-content-lg-end justify-content-between pe-0 pe-lg-2 px-2"
     >
-    <div
-    class="right-side d-none d-lg-block col-lg-3 col-xl-2 py-3 px-3 mt-3"
-  >
-    <a
-      class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between active"
-      href="index.html"
-    >
-      <span> عام</span><i class="fa-regular fa-gear"></i>
-    </a>
-    <a
-    href="simcards.html"
-      class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3 "
-    >
-      <span>الخطوط</span><i class="fa-regular fa-sim-cards"></i>
-    </a>
-    <a
-      class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
-      href="operations.html"
-    >
-      <span>العمليات</span
-      ><i class="fa-sharp fa-regular fa-money-bill-wave"></i>
-    </a>
-    <a
-      class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
-      href="reports.html"
-    >
-      <span>التقارير</span
-      ><i class="fa-sharp fa-regular fa-file-chart-column"></i>
-    </a>
-    <a
-      class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
-      href="accounts.html"
-    >
-      <span>الحسابات</span><i class="fa-regular fa-users"></i>
-    </a>
-    <a
-    href="about_shop.html"
-      class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3 "
-    >
-      <span>عن المحل</span><i class="fa-regular fa-address-card"></i>
-    </a>
-  </div>
+      <div
+        class="right-side d-none d-lg-block col-lg-3 col-xl-2 py-3 px-3 mt-3"
+      >
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between"
+          href="index.html"
+        >
+          <span> عام</span><i class="fa-regular fa-gear"></i>
+        </a>
+        <a
+          href="simcards.html"
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+        >
+          <span>الخطوط</span><i class="fa-regular fa-sim-cards"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3 active"
+          href="operations.html"
+        >
+          <span>العمليات</span
+          ><i class="fa-sharp fa-regular fa-money-bill-wave"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="reports.html"
+        >
+          <span>التقارير</span
+          ><i class="fa-sharp fa-regular fa-file-chart-column"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="shefts.html"
+        >
+          <span>الشفتات</span><i class="fa-sharp fa-regular fa-clock"></i> </a
+        ><a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="files.html"
+        >
+          <span>الملفات</span><i class="fa-sharp fa-regular fa-folder"></i>
+        </a>
+        <a
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+          href="accounts.html"
+        >
+          <span>الحسابات</span><i class="fa-regular fa-users"></i>
+        </a>
+        <a
+          href="about_shop.html"
+          class="opt col-12 px-2 py-2 md-2 d-flex align-items-center justify-content-between mt-3"
+        >
+          <span>عن المحل</span><i class="fa-regular fa-address-card"></i>
+        </a>
+      </div>
       <div
         class="left-side col-12 col-lg-9 col-xl-10 d-flex flex-column align-items-center py-3"
       >
-        <div class="left-side-header col-12 text-center fs-5">
-          الاعدادات العامه
-        </div>
+        <div class="left-side-header col-12 text-center fs-5">العمليات</div>
         <div
-          class="left-side-content col-12 px-3 mt-2 d-flex justify-content-center"
+          class="left-side-content col-12 px-3 mt-2 d-flex flex-column align-items-center"
         >
           <div class="boxs col-12 d-flex flex-wrap">
             <div
-              class="box site-name-changer col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
-            >
-              <div class="box-container col-11 p-2 rounded-2">
-                <div
-                  class="box-header col-12 d-flex justify-content-between align-items-center"
-                >
-                  <span class="box-title col-12 text-center"
-                    >تغير اسم الموقع</span
-                  >
-                </div>
-                <div class="box-content col-12">
-                  <form class="mt-1">
-                    <input
-                      type="text"
-                      class="input col-12"
-                      placeholder="الاسم الجديد"
-                    />
-                    <button class="col-12 mt-2" type="button">تم</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div
-              class="box theme col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
-            >
-              <div class="box-container col-11 p-2 rounded-2">
-                <div
-                  class="box-header col-12 d-flex justify-content-between align-items-center"
-                >
-                  <span class="box-title col-12 text-center"> تغير المظهر</span>
-                </div>
-                <div class="box-content col-12 px-3">
-                  <div
-                    class="light d-flex justify-content-between align-items-center"
-                  >
-                    <div class="text">فاتح</div>
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" data-style="0"/>
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="dark mt-2 d-flex justify-content-between align-items-center"
-                  >
-                    <div class="text">داكن</div>
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" data-style="1"/>
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
               class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
             >
               <div class="box-container col-11 p-2 rounded-2">
                 <div
                   class="box-header col-12 d-flex justify-content-between align-items-center"
                 >
-                  <span class="box-title col-12 text-center">تغير الخط</span>
-                </div>
-                <div
-                  class="box-content col-12 px-2 d-flex flex-column align-items-center"
-                >
-                  <div
-                    class="drop-menu-box d-flex col-12 align-items-center justify-content-between mt-4"
-                  >
-                    <div class="drop-menu-shower col-10 text-center col-10 px-1 py-2">
-                      الخط
-                    </div>
-                    <div class="drop-menu-shm text-center col-1 p-2">
-                      <i class="fa-regular fa-angle-down "></i>
-                    </div>
-                  </div>
-                  <div class="menu col-12 mt-1 p-2 rounded-2 d-none" >
-                    <div class="font col12 p-2" data-font="1">
-                      خط - 1
-                    </div><div class="font col-12 p-2" data-font="2">
-                      خط - 2
-                    </div><div class="font col12 p-2" data-font="3">
-                      خط - 3 
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="box times col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
-            >
-              <div class="box-container col-11 p-2 rounded-2">
-                <div
-                  class="box-header col-12 d-flex justify-content-between align-items-center"
-                >
                   <span class="box-title col-12 text-center"
-                    >التاريخ و الوقت</span
-                  >
-                </div>
-                <div class="box-content col-12 px-3 ">
-                  <div
-                    class="time d-flex justify-content-between align-items-center"
-                  >
-                    <div class="text">عرض الوقت</div>
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" data-inf="time"/>
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="date mt-2 d-flex justify-content-between align-items-center"
-                  >
-                    <div class="text">عرض التاريخ</div>
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" data-inf="date"/>
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="day mt-2 d-flex justify-content-between align-items-center"
-                  >
-                    <div class="text">عرض اليوم</div>
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" data-inf="day"/>
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
-            >
-              <div class="box-container col-11 p-2 rounded-2">
-                <div
-                  class="box-header col-12 d-flex justify-content-between align-items-center"
-                >
-                  <span class="box-title col-12 text-center">
-                    التحكم في الصفحات
+                    >الخيارات الاساسيه
                   </span>
                 </div>
                 <div class="box-content col-12 px-3">
                   <div
-                    class="sims d-flex justify-content-between align-items-center"
+                    class="sim-auto d-flex justify-content-between align-items-center mt-2"
                   >
-                    <div class="text">ادارة الخطوط</div>
+                    <div class="text">عرض نوع الخط تلقائي</div>
                     <div class="toggel">
                       <label class="switch">
                         <input type="checkbox" />
@@ -251,9 +120,21 @@
                     </div>
                   </div>
                   <div
-                    class="operations mt-2 d-flex justify-content-between align-items-center"
+                    class="company mt-2 d-flex justify-content-between align-items-center"
                   >
-                    ادارة العمليات
+                    <div class="text">اختيار عمولة الشركه تلقائي حسب الخط</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div
+                    class="shop mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">اختيار ربح المحل تلقائي حسب الخط</div>
                     <div class="toggel">
                       <label class="switch">
                         <input type="checkbox" />
@@ -262,31 +143,9 @@
                     </div>
                   </div>
                   <div
-                    class="bests mt-2 d-flex justify-content-between align-items-center"
+                    class="sound mt-2 d-flex justify-content-between align-items-center"
                   >
-                    العملاء المميزين
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" />
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="reports mt-2 d-flex justify-content-between align-items-center"
-                  >
-                    ادارة التقارير
-                    <div class="toggel">
-                      <label class="switch">
-                        <input type="checkbox" />
-                        <span class="slider"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div
-                    class="safes mt-2 d-flex justify-content-between align-items-center"
-                  >
-                    الخزنه
+                    <div class="text">صوت اضافة عمليه</div>
                     <div class="toggel">
                       <label class="switch">
                         <input type="checkbox" />
@@ -304,13 +163,15 @@
                 <div
                   class="box-header col-12 d-flex justify-content-between align-items-center"
                 >
-                  <span class="box-title col-12 text-center">اضافات</span>
+                  <span class="box-title col-12 text-center"
+                    >خيارات عرض العمليات</span
+                  >
                 </div>
                 <div class="box-content col-12 px-3">
                   <div
-                    class="support d-flex justify-content-between align-items-center"
+                    class="list d-flex justify-content-between align-items-center mt-2"
                   >
-                    <div class="text">عرض ايقونة الدعم</div>
+                    <div class="text">عرض كقائمة</div>
                     <div class="toggel">
                       <label class="switch">
                         <input type="checkbox" />
@@ -319,9 +180,9 @@
                     </div>
                   </div>
                   <div
-                    class="notes mt-2 d-flex justify-content-between align-items-center"
+                    class="cards mt-2 d-flex justify-content-between align-items-center"
                   >
-                    <div class="text">دفتر ملاحظات</div>
+                    <div class="text">عرض ك كروت</div>
                     <div class="toggel">
                       <label class="switch">
                         <input type="checkbox" />
@@ -330,14 +191,140 @@
                     </div>
                   </div>
                   <div
-                    class="get mt-2 d-flex justify-content-between align-items-center"
+                    class="cards-img mt-2 d-flex justify-content-between align-items-center"
                   >
-                    <button class="col-12 text-center">اخذ نسخه من البيانات</button>
+                    <div class="text">اضافة صورة المحل للكروت</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="box col-12 col-lg-4 d-flex justify-content-center flex-wrap change-title"
+            >
+              <div class="box-container col-11 p-2 rounded-2">
+                <div
+                  class="box-header col-12 d-flex justify-content-between align-items-center"
+                >
+                  <span class="box-title col-12 text-center"
+                    >خيارات عرض بيانات العمليات</span
+                  >
+                </div>
+                <div class="box-content col-12 px-3">
+                  <div
+                    class="simcard-num d-flex justify-content-between align-items-center mt-2"
+                  >
+                    <div class="text">عرض رقم الخط</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
                   </div>
                   <div
-                    class="push mt-2 d-flex justify-content-between align-items-center"
+                    class="simcard-type mt-2 d-flex justify-content-between align-items-center"
                   >
-                    <button class="col-12 text-center">استرجاع البيانات</button>
+                    <div class="text">عرض نوع الخط</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="client mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض رقم العميل</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="ope-date mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض تاريخ العمليه</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="ope-time mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض وقت العمليه</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="ope-type mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض نوع العمليه</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="orignal-money mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض المبلغ</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="penefit mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض نسبة الربح</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="copany-penefit mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض عمولة الشركه</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="total-penefit mt-2 d-flex justify-content-between align-items-center"
+                  >
+                    <div class="text">عرض المكسب النهائي</div>
+                    <div class="toggel">
+                      <label class="switch">
+                        <input type="checkbox" />
+                        <span class="slider"></span>
+                      </label>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -380,7 +367,5 @@
     <script>
       AOS.init();
     </script>
-    <script type="module" src="../../assets/js/tools/card.js"></script>
-    <script src="../../assets/js/settings/admin/general.js"></script>
   </body>
 </html>
