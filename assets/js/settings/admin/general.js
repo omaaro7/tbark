@@ -19,18 +19,21 @@ window.onload = async () => {
       reports_page: data[0].reports_page,
       bestclients_page: data[0].bestclients_page,
       safes_page: data[0].safes_page,
-      suporticon: data[0].suporticon,
-      notes: data[0].notes,
+      suporticon_show: data[0].suporticon_show,
+      notes_show: data[0].notes_show,
     };
     if (localStorage.getItem("general_settings") == null) {
-      localStorage.setItem("generalsettings",JSON.stringify(info))
+      localStorage.setItem("generalsettings", JSON.stringify(info));
     }
   }
   async function applyFuncs() {
     changeSiteName();
     changeTheme();
     fontChanger();
-    dateTimeDay_show()
+    dateTimeDayPagesExtentions_show("times","show");
+    dateTimeDayPagesExtentions_show("pages","page");
+    dateTimeDayPagesExtentions_show("ext","show");
+
   }
   const inf = await getInfo();
   const apl = await applyFuncs();
@@ -68,21 +71,19 @@ async function changeTheme() {
   const togglers = document.querySelectorAll(
     ".theme .box-container .box-content div .toggel label input"
   );
-  
+
   togglers.forEach((ele, index) => {
     if (ele.dataset.style == info.site_style) {
-      ele.checked = true
+      ele.checked = true;
     }
     ele.addEventListener("click", (e) => {
-      togglers.forEach((ele) => {
-        ele.checked = false;
-      });
-      if (e.target.checked) {
-        e.target.checked = false;
-        index == 0 ? (togglers[1].checked = true) : (togglers[0].checked = tue);
-      } else {
+      if (!e.target.checked) {
         e.target.checked = true;
-        fetch("../../routers/settings/site_info/put_siteinfo.php?id=1",{
+      } else {
+        index == 0
+          ? (togglers[1].checked = false)
+          : (togglers[0].checked = false);
+        fetch("../../routers/settings/site_info/put_siteinfo.php?id=1", {
           headers: {
             "Content-Type": "application/json",
           },
@@ -105,7 +106,8 @@ async function changeTheme() {
               icon: "error",
               title: "حدث خطأ",
             });
-      }})
+          }
+        });
       }
     });
   });
@@ -117,7 +119,9 @@ async function fontChanger() {
   //show or hide menu
   menuClicker.addEventListener("click", (e) => {
     menu.classList.toggle("d-none");
-    menuClicker.lastElementChild.firstElementChild.classList.toggle("fa-angle-up")
+    menuClicker.lastElementChild.firstElementChild.classList.toggle(
+      "fa-angle-up"
+    );
   });
   //change font
   fonts.forEach((ele, index) => {
@@ -150,14 +154,44 @@ async function fontChanger() {
     });
   });
 }
-async function dateTimeDay_show () {
+async function dateTimeDayPagesExtentions_show(box,value) {
   const togglers = document.querySelectorAll(
-    ".times .box-container .box-content div .toggel label input"
-  );
-  togglers.forEach((ele,index) => {
-    let val = ele.dataset.inf
-    if (info[`${val}_show`]== 1) {
-      ele.checked = true
+    `.${box} .box-container .box-content div .toggel label input`  );
+  togglers.forEach((ele, index) => {
+    let val = `${ele.dataset.inf}_${value}`;
+    //show in this page
+    console.log(val);
+    if (info[`${val}`] == 1) {
+      ele.checked = true;
     }
-  })
+    ele.addEventListener("click", (e) => {
+      let stat = "";
+      let data = {}
+      e.target.checked ? (stat = "1") : (stat = "0");
+      data[val] = stat
+      fetch("../../routers/settings/site_info/put_siteinfo.php?id=1", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "PUT",
+        body: JSON.stringify(data),
+      }).then((res) => {
+        if (res.ok) {
+          Swal.fire({
+            icon: "success",
+            title: "تم التعديل بنجاح",
+          }).then(() =>
+            setTimeout(() => {
+              window.location.reload();
+            }, 1000)
+          );
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "حدث خطأ",
+          });
+        }
+      });
+    });
+  });
 }
