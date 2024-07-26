@@ -19,13 +19,11 @@ input[type="number"] {
   --six-color: #4e3434;
   --seven-color: #5c5470;
   --eight-color: #1e76c4;
+  --test:rgb(73, 30, 190);
 }
 body{
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 main{
   min-height: 80vh;
@@ -158,7 +156,7 @@ body {
   background-color: var(--second-color);
   color: var(--main-color);
 }
-.edit,.delete{
+.edit,.delete,.company-edit,.shop-edit{
   padding: 5px;
   background-color: var(--eight-color);
   border: 2px solid var(--eight-color);
@@ -171,12 +169,54 @@ body {
   background-color: var(--five-color);
   border-color: var(--five-color);
 }
-.edit:hover,.delete:hover{
+.edit:hover,.delete:hover,.company-edit:hover,.shop-edit:hover{
   background-color: transparent;
   color: var(--eight-color);
 }
 .delete:hover{
   color: var(--five-color);
+}
+.edit-box{
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #00000085;
+  z-index: 1550;
+}
+.edit-box-container{
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+.closer{
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--second-color);
+  font-size: 30px;
+  cursor: pointer;
+}
+.closer i{
+  transition: all 0.5s;
+}
+.closer i:hover{
+  color: var(--fourth-color);
+}
+.choose{
+  padding: 10px 0;
+  background-color: var(--thered-color);
+  border-left: 1px solid var(--main-color);
+  color: var(--background-color);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: all 0.5s;
+}.choose:last-child{
+  border-right: 1px solid var(--main-color);
+}
+.choose.active,.choose:hover{
+  opacity: 1;
 }
 form input {
   padding: 7px 7px;

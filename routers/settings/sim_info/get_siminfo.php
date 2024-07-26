@@ -19,14 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['id'])) {
         $id = $_GET['id']; // Assume the ID is passed as a query parameter
 
-        $sql = "SELECT * FROM siteinfo WHERE id = $id";
+        $sql = "SELECT * FROM simsinfo WHERE id = $id";
         $result = $conn->query($sql);
 
         $row = $result->fetch_assoc();
         echo json_encode($row);
 
     } else { // If no ID is provided, retrieve all data in reverse order
-        $sql = "SELECT * FROM siteinfo ORDER BY id ASC"; // Ordering by 'id' column in ascending order
+        $sql = "SELECT * FROM simsinfo ORDER BY id DESC"; // Ordering by 'id' column in ascending order
         $result = $conn->query($sql);
 
         $rows = array();

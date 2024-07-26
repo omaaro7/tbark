@@ -22,9 +22,6 @@ window.onload = async () => {
       suporticon_show: data[0].suporticon_show,
       notes_show: data[0].notes_show,
     };
-    if (localStorage.getItem("general_settings") == null) {
-      localStorage.setItem("generalsettings", JSON.stringify(info));
-    }
   }
   async function applyFuncs() {
     changeSiteName();
