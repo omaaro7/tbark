@@ -1,5 +1,10 @@
 //'main vars
+import { close } from "../../tools/global_functions.js";
 let info = [];
+let penefit_type = {
+  company:"",
+  shop:""
+}
 const checks = document.querySelectorAll(".activater");
 const companey_checks = document.querySelectorAll(".companey-activater");
 const shop_checks = document.querySelectorAll(".shop-activater");
@@ -23,8 +28,8 @@ async function getInfo() {
       sim_companey: ele.sim_companey,
       sim_shop: ele.sim_shop,
       sim_color: ele.sim_color,
-      company_state:ele.company_state,
-      shop_state:ele.shop_state
+      company_state: ele.company_state,
+      shop_state: ele.shop_state,
     };
     info.push(Sinfo);
   });
@@ -34,9 +39,10 @@ async function applyFuncs() {
   check_activation();
   setSimColor();
   setActivation();
-  companyAndShop_activation()
+  companyAndShop_activation();
+  manageAndEditPenefits();
 }
-//'conroling funcs
+//'controling funcs
 async function check_activation() {
   console.log(company_edit);
   info.map((ele, index) => {
@@ -51,14 +57,17 @@ async function check_activation() {
       shop_checks[
         index
       ].parentElement.parentElement.parentElement.style.opacity = "0.5";
-      company_edit[index].parentElement.classList.replace("mt-2","mt-3")
+      company_edit[index].parentElement.classList.replace("mt-2", "mt-3");
       company_edit[index].parentElement.style.opacity = "0.5";
       company_edit[index].classList.add("d-none");
-      shop_edit[index].parentElement.classList.replace("mt-2","mt-3")
+      shop_edit[index].parentElement.classList.replace("mt-2", "mt-3");
 
       shop_edit[index].parentElement.style.opacity = "0.5";
       shop_edit[index].classList.add("d-none");
-      colors[index].parentElement.parentElement.classList.replace("mt-2","mt-3")
+      colors[index].parentElement.parentElement.classList.replace(
+        "mt-2",
+        "mt-3"
+      );
       colors[index].parentElement.parentElement.style.opacity = "0.5";
       colors[index].classList.add("d-none");
     }
@@ -91,9 +100,7 @@ async function setActivation() {
           Swal.fire({
             icon: "success",
             title: "تم التعديل بنجاح",
-          }).then(() =>
-            window.location.reload()
-          );
+          }).then(() => window.location.reload());
         } else {
           Swal.fire({
             icon: "error",
@@ -109,46 +116,47 @@ async function companyAndShop_activation() {
   info.forEach((ele, index) => {
     if (info[index].company_state == 1) {
       companey_checks[index].checked = true;
-    }if (info[index].shop_state == 1) {
+    }
+    if (info[index].shop_state == 1) {
       shop_checks[index].checked = true;
     }
   });
   //'set
   let state = {
-    company:0,
-    shop:0
-  }
-  companey_checks.forEach((ele,index) => {
-    ele.addEventListener("click" , (e) =>{
-      e.target.checked == true ? state.company = 1 : state.company = 0
-      controle(e.target,index,{company_state:state.company})
-    })
-  })
+    company: 0,
+    shop: 0,
+  };
+  companey_checks.forEach((ele, index) => {
+    ele.addEventListener("click", (e) => {
+      e.target.checked == true ? (state.company = 1) : (state.company = 0);
+      controle(e.target, index, { company_state: state.company });
+    });
+  });
 
-  shop_checks.forEach((ele,index) => {
-    ele.addEventListener("click" , (e) =>{
-      e.target.checked == true ? state.shop = 1 : state.shop = 0
-      controle(e.target,index,{shop_state:state.shop})
-    })
-  })
+  shop_checks.forEach((ele, index) => {
+    ele.addEventListener("click", (e) => {
+      e.target.checked == true ? (state.shop = 1) : (state.shop = 0);
+      controle(e.target, index, { shop_state: state.shop });
+    });
+  });
 
-  function controle (item,index,handle) {
-    if(!item.disabled){
-      let state = 
-      fetch(`../../routers/settings/sim_info/put_siminfo.php?id=${index + 1}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "PUT",
-        body: JSON.stringify(handle),
-      }).then((res) => {
+  function controle(item, index, handle) {
+    if (!item.disabled) {
+      let state = fetch(
+        `../../routers/settings/sim_info/put_siminfo.php?id=${index + 1}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "PUT",
+          body: JSON.stringify(handle),
+        }
+      ).then((res) => {
         if (res.ok) {
           Swal.fire({
             icon: "success",
             title: "تم التعديل بنجاح",
-          }).then(() =>
-            window.location.reload()
-          );
+          }).then(() => window.location.reload());
         } else {
           Swal.fire({
             icon: "error",
@@ -158,4 +166,49 @@ async function companyAndShop_activation() {
       });
     }
   }
+}
+//'manage and edit penefits
+async function manageAndEditPenefits() {
+  //'helper funcs
+  close(
+    document.querySelector(".closer"),
+    document.querySelector(".edit-box"),
+    false
+  );
+  switchChoises()
+  const clickers = document.querySelectorAll(".per-edit ")
+  clickers.forEach((ele, index) => {
+    ele.addEventListener("click", (e) => {
+      if (e.target.dataset.edit == "company") {
+        console.log(e.target.parentElement.parentElement.parentElement.previousElementSibling.textContent);
+        showEditBox("الشركه",e.target.parentElement.parentElement.parentElement.previousElementSibling.textContent)
+      } else if (e.target.dataset.edit == "shop") {
+        showEditBox("المحل","__")
+      }
+    });
+  });
+}
+async function showEditBox(loc,nm) {
+  const choises = document.querySelectorAll(".choose");
+  const box = document.querySelector(".edit-box");
+  const loaction = document.querySelector("span.location");
+  const Name = document.querySelector("span.name");
+  box.classList.replace("d-none","d-flex");
+  choises[0].classList.add("active")
+  choises[1].classList.remove("active")
+  loaction.textContent = loc
+  Name.textContent = nm
+}
+async function switchChoises () {
+  const choises = document.querySelectorAll(".choose");
+  choises.forEach((ele,index) => {
+    ele.addEventListener("click" , (e) => {
+      choises.forEach((el) => el.classList.remove("active"))
+      e.target.classList.add("active")
+    })
+
+  })
+}
+async function applyNewPenefit() {
+  
 }

@@ -165,6 +165,19 @@ body {
   cursor: pointer;
   transition: all 0.5s;
 }
+.company-edit,.shop-edit{
+  padding: 0 !important;
+  border: none;
+  background-color: transparent;
+}
+.company-edit i,.shop-edit i {
+  color: var(--eight-color);
+  font-size: 25px;
+  transition: all 0.5s;
+}
+.company-edit i:hover,.shop-edit i:hover {
+  color: var(--second-color);
+}
 .delete{
   background-color: var(--five-color);
   border-color: var(--five-color);
