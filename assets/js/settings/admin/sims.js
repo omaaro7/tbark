@@ -168,7 +168,7 @@ async function companyAndShop_activation() {
 async function manageAndEditPenefits() {
   //'helper funcs
   close(
-    document.querySelector(".closer"),
+    document.querySelector(".edit-closer"),
     document.querySelector(".edit-box"),
     false
   );
