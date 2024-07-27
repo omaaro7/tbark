@@ -1,10 +1,7 @@
 //'main vars
 import { close } from "../../tools/global_functions.js";
 let info = [];
-let penefit_type = {
-  company:"",
-  shop:""
-}
+const input = document.querySelector(".per");
 const checks = document.querySelectorAll(".activater");
 const companey_checks = document.querySelectorAll(".companey-activater");
 const shop_checks = document.querySelectorAll(".shop-activater");
@@ -175,40 +172,96 @@ async function manageAndEditPenefits() {
     document.querySelector(".edit-box"),
     false
   );
-  switchChoises()
-  const clickers = document.querySelectorAll(".per-edit ")
+  switchChoises();
+  //'code
+  const clickers = document.querySelectorAll(".per-edit ");
   clickers.forEach((ele, index) => {
     ele.addEventListener("click", (e) => {
       if (e.target.dataset.edit == "company") {
-        console.log(e.target.parentElement.parentElement.parentElement.previousElementSibling.textContent);
-        showEditBox("الشركه",e.target.parentElement.parentElement.parentElement.previousElementSibling.textContent)
+        showEditBox(
+          "الشركه",
+          e.target.parentElement.parentElement.parentElement
+            .previousElementSibling.textContent,
+          e.target.dataset.edit
+        );
+        applyNewPenefit(
+          e.target.parentElement.parentElement.parentElement
+            .previousElementSibling.parentElement.parentElement.dataset.id,
+            "companey"
+        );
       } else if (e.target.dataset.edit == "shop") {
-        showEditBox("المحل","__")
+        showEditBox("المحل", "__", e.target.dataset.edit);
+        applyNewPenefit(
+          e.target.parentElement.parentElement.parentElement
+            .previousElementSibling.parentElement.parentElement.dataset.id,
+            "shop"
+        );
       }
     });
   });
 }
-async function showEditBox(loc,nm) {
+async function showEditBox(loc, nm, target) {
   const choises = document.querySelectorAll(".choose");
   const box = document.querySelector(".edit-box");
   const loaction = document.querySelector("span.location");
   const Name = document.querySelector("span.name");
-  box.classList.replace("d-none","d-flex");
-  choises[0].classList.add("active")
-  choises[1].classList.remove("active")
-  loaction.textContent = loc
-  Name.textContent = nm
+  box.classList.replace("d-none", "d-flex");
+  choises[0].classList.add("active");
+  choises[1].classList.remove("active");
+  input.placeholder = " اكتب النسبه الجديده";
+  input.dataset.mstate = "0";
+  loaction.textContent = loc;
+  Name.textContent = nm;
+  input.dataset.target = target;
 }
-async function switchChoises () {
+async function switchChoises() {
   const choises = document.querySelectorAll(".choose");
-  choises.forEach((ele,index) => {
-    ele.addEventListener("click" , (e) => {
-      choises.forEach((el) => el.classList.remove("active"))
-      e.target.classList.add("active")
-    })
-
-  })
+  choises.forEach((ele, index) => {
+    ele.addEventListener("click", (e) => {
+      choises.forEach((el) => el.classList.remove("active"));
+      e.target.classList.add("active");
+      e.target.dataset.type == "mblh"
+        ? (input.placeholder = "اكتب المبلع الجديد")
+        : (input.placeholder = "اكتب النسبه الجديده"),
+        e.target.dataset.type == "mblh"
+          ? (input.dataset.mstate = 1)
+          : (input.dataset.mstate = 0);
+    });
+  });
 }
-async function applyNewPenefit() {
-  
+async function applyNewPenefit(index,st) {
+  let obj
+  const btn = document.querySelector(".per-group button");
+  btn.addEventListener("click", () => {
+    if (st == "shop") {
+      obj = {
+        sim_shop: input.value.trim(),
+        shop_penefit_type:input.dataset.mstate,
+      }
+    }else{
+      obj = {
+        sim_company: input.value.trim(),
+        company_penefit_type: input.dataset.mstate,
+      }
+    }
+    fetch(`../../routers/settings/sim_info/put_siminfo.php?id=${+index + 1}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify(obj),
+    }).then((res) => {
+      if (res.ok) {
+        Swal.fire({
+          icon: "success",
+          title: "تم التعديل بنجاح",
+        }).then(() => window.location.reload());
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "حدث خطأ",
+        });
+      }
+    });
+  });
 }

@@ -85,7 +85,7 @@
           class="left-side-content col-12 px-3 mt-2 d-flex flex-column align-items-center"
         >
           <div class="sims-box col-12 d-flex flex-wrap">
-            <div class="box col-12 col-lg-4 d-flex justify-content-center">
+            <div class="box col-12 col-lg-4 d-flex justify-content-center" data-id="0">
               <div class="box-container col-11 px-2 py-3">
                 <div class="box-con-header col-12 text-center">Vodafone</div>
                 <div class="box-con-content col-12 mt-2">
@@ -154,14 +154,12 @@
                   >
                     <span class="tit"> لون الخط : <span></span></span>
                     <span class="change"
-                      ><label for="vod" class="sim vod"></label
-                      ><input type="color" class="d-none" id="vod"
-                    /></span>
+                      ><label id="vod" class="sim"></label></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="box col-12 col-lg-4 d-flex justify-content-center">
+            <div class="box col-12 col-lg-4 d-flex justify-content-center" data-id="1">
               <div class="box-container col-11 px-2 py-3">
                 <div class="box-con-header col-12 text-center">Orange</div>
                 <div class="box-con-content col-12 mt-2">
@@ -230,14 +228,13 @@
                   >
                     <span class="tit"> لون الخط : <span></span></span>
                     <span class="change"
-                      ><label for="ora" class="sim ora"></label
-                      ><input type="color" class="d-none" id="ora"
-                    /></span>
+                      ><label class="sim" id="ora"></label
+                      ></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="box col-12 col-lg-4 d-flex justify-content-center">
+            <div class="box col-12 col-lg-4 d-flex justify-content-center" data-id="2">
               <div class="box-container col-11 px-2 py-3">
                 <div class="box-con-header col-12 text-center">Etisalat</div>
                 <div class="box-con-content col-12 mt-2">
@@ -306,14 +303,13 @@
                   >
                     <span class="tit"> لون الخط : <span></span></span>
                     <span class="change"
-                      ><label for="vod" class="sim eti"></label
-                      ><input type="color" class="d-none" id="eti"
-                    /></span>
+                      ><label  class="sim" id="eti"></label
+                      ></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="box col-12 col-lg-4 d-flex justify-content-center">
+            <div class="box col-12 col-lg-4 d-flex justify-content-center" data-id="3">
               <div class="box-container col-11 px-2 py-3">
                 <div class="box-con-header col-12 text-center">We</div>
                 <div class="box-con-content col-12 mt-2">
@@ -382,9 +378,8 @@
                   >
                     <span class="tit"> لون الخط : <span></span></span>
                     <span class="change"
-                      ><label for="vod" class="sim we"></label
-                      ><input type="color" class="d-none" id="we"
-                    /></span>
+                      ><label  class="sim" id="we"></label
+                      ></span>
                   </div>
                 </div>
               </div>
@@ -420,6 +415,8 @@
               type="number"
               class="per col-12 col-lg-9 mt-2 rounded-2"
               placeholder="اكتب النسبه الجديده"
+              data-mstate="0"
+              data-target=""
             />
             <button type="button" class="col-12 col-lg-2 mt-2">تم</button>
           </form>
