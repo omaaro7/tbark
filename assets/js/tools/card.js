@@ -232,3 +232,13 @@ export const nores = (text, size) => {
   `;
   return item;
 };
+
+//---------------------------settings---------------------------
+//sim cards
+export const colorsIt = (bac) => {
+  const item = `
+  <div class="color-item-box col-12 col-lg-4 col-xl-3 mt-2 ">
+            <div class="color-item col-11" style="background:${bac}" data-color="${bac}"></div>
+          </div>`
+          return item;
+}

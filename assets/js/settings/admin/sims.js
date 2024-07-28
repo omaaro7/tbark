@@ -1,4 +1,5 @@
 //'main vars
+import { colorsIt } from "../../tools/card.js";
 import { close } from "../../tools/global_functions.js";
 let info = [];
 const input = document.querySelector(".per");
@@ -71,13 +72,49 @@ async function check_activation() {
   });
 }
 async function setSimColor() {
+  let colors = [
+    "rgb(255, 0, 0)",
+    "rgb(48, 161, 48)",
+    "rgb(7, 7, 219)",
+    "rgb(255, 255, 0)",
+    "rgb(255, 0, 255)",
+    "rgb(69, 179, 179)",
+    "rgb(128, 0, 128)",
+    "rgb(0, 128, 128)",
+    "rgb(255, 165, 0)",
+    "rgb(128, 0, 0)",
+    "rgb(128, 128, 0)",
+    "rgb(0, 0, 128)",
+    "rgb(128, 128, 128)",
+    "rgb(192, 192, 192)",
+    "rgb(255, 99, 71)",
+    "rgb(70, 130, 180)",
+  ];
+  let box = document.querySelector(".colors-box");
   let colorsBox = document.querySelectorAll("span.change label");
+  let choose = document.querySelector(".choose-color");
+  let colorsItemsBox = document.querySelector(".colors-items-box");
+   colors.forEach((ele,index) => {
+    console.log(index);
+    colorsItemsBox.innerHTML += colorsIt(ele)
+  })
+   close(
+    document.querySelector(".colors-closer i"),
+    box,
+    false
+  );
   info.map((ele, index) => {
     colorsBox[index].style.backgroundColor = `${ele.sim_color}`;
     colorsBox[
       index
     ].parentElement.previousElementSibling.firstElementChild.textContent =
       ele.sim_color;
+  });
+  colorsBox.forEach((ele, index) => {
+    ele.addEventListener("click", (e) => {
+      box.classList.replace("d-none", "d-flex");
+      choose.textContent = info[index].simname;
+    });
   });
 }
 //'activation funcs
@@ -187,14 +224,14 @@ async function manageAndEditPenefits() {
         applyNewPenefit(
           e.target.parentElement.parentElement.parentElement
             .previousElementSibling.parentElement.parentElement.dataset.id,
-            "companey"
+          "companey"
         );
       } else if (e.target.dataset.edit == "shop") {
         showEditBox("المحل", "__", e.target.dataset.edit);
         applyNewPenefit(
           e.target.parentElement.parentElement.parentElement
             .previousElementSibling.parentElement.parentElement.dataset.id,
-            "shop"
+          "shop"
         );
       }
     });
@@ -229,20 +266,20 @@ async function switchChoises() {
     });
   });
 }
-async function applyNewPenefit(index,st) {
-  let obj
+async function applyNewPenefit(index, st) {
+  let obj;
   const btn = document.querySelector(".per-group button");
   btn.addEventListener("click", () => {
     if (st == "shop") {
       obj = {
         sim_shop: input.value.trim(),
-        shop_penefit_type:input.dataset.mstate,
-      }
-    }else{
+        shop_penefit_type: input.dataset.mstate,
+      };
+    } else {
       obj = {
         sim_company: input.value.trim(),
         company_penefit_type: input.dataset.mstate,
-      }
+      };
     }
     fetch(`../../routers/settings/sim_info/put_siminfo.php?id=${+index + 1}`, {
       headers: {

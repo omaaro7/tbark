@@ -19,41 +19,43 @@ input[type="number"] {
   --six-color: #4e3434;
   --seven-color: #5c5470;
   --eight-color: #1e76c4;
-  --test:rgb(73, 30, 190);
 }
-body{
+body {
   width: 100%;
   height: 100vh;
 }
-main{
+main {
   min-height: 80vh;
 }
-.main .right-side::-webkit-scrollbar
- {
-  width:5px;
+.main .right-side::-webkit-scrollbar,
+.colors-box-container::-webkit-scrollbar {
+  width: 5px;
   background-color: transparent;
   border-radius: 3px;
 }
 
-.main .right-side::-webkit-scrollbar-track
-{  background-color: transparent;
+.main .right-side::-webkit-scrollbar-track,
+.colors-box-container::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
-.main .right-side::-webkit-scrollbar-thumb
- {
+.main .right-side::-webkit-scrollbar-thumb ,
+.colors-box-container::-webkit-scrollbar-thumb{
   width: 100%;
   height: 30%;
   background-color: #6886bd;
   border-radius: 10px;
 }
-.main .right-side::-webkit-scrollbar-thumb {
+.main .right-side::-webkit-scrollbar-thumb 
+{
   background-color: var(--eight-color);
 }
 
-.main .right-side::-webkit-scrollbar-button
- {
+.main .right-side::-webkit-scrollbar-button,
+.colors-box-container::-webkit-scrollbar-button {
   display: none;
 }
+
 body {
   width: 100%;
   min-height: 100vh;
@@ -62,7 +64,6 @@ body {
   background-color: var(--background-color);
   font-family: main_font;
   position: relative;
-
 }
 .header {
   background-color: var(--main-color);
@@ -105,58 +106,63 @@ body {
   border: 2px solid var(--eight-color);
   text-decoration: none;
 }
-.opt:hover,.opt.active {
+.opt:hover,
+.opt.active {
   transform: scale(1) !important;
   background-color: var(--eight-color);
   color: var(--main-color);
 }
-.box,.shower{
+.box,
+.shower {
   margin-top: 20px;
 }
-.box-container{
+.box-container {
   background-color: var(--main-color);
   border-radius: 7px;
-  box-shadow: -4px 3px 7px 5px #00000033;;
- 
+  box-shadow: -4px 3px 7px 5px #00000033;
 }
-.shower-content{
+.shower-content {
   background-color: var(--eight-color);
   color: var(--background-color);
   border-radius: 6px;
   box-shadow: -5px 4px 9px 1px #00000045;
 }
-.shower.admins .shower-content{
+.shower.admins .shower-content {
   background-color: var(--second-color);
 }
-.shower.workers .shower-content{
+.shower.workers .shower-content {
   background-color: var(--fourth-color);
 }
 
 .shower-content .description {
   font-size: 20px;
 }
-.shower-content .icon i{
+.shower-content .icon i {
   font-size: 65px;
 }
-.drop-menu-shower,.drop-menu-shm{
+.drop-menu-shower,
+.drop-menu-shm {
   background-color: var(--eight-color);
   color: var(--main-color);
   border-radius: 10px;
 }
-.menu{
+.menu {
   background-color: var(--background-color);
 }
-.font{
+.font {
   border-bottom: 1px solid var(--main-color);
   transition: all 0.5s;
   cursor: pointer;
   border-radius: 10px;
 }
-.font:hover{
+.font:hover {
   background-color: var(--second-color);
   color: var(--main-color);
 }
-.edit,.delete,.company-edit,.shop-edit{
+.edit,
+.delete,
+.company-edit,
+.shop-edit {
   padding: 5px;
   background-color: var(--eight-color);
   border: 2px solid var(--eight-color);
@@ -165,33 +171,39 @@ body {
   cursor: pointer;
   transition: all 0.5s;
 }
-.company-edit,.shop-edit{
+.company-edit,
+.shop-edit {
   padding: 0 !important;
   border: none;
   background-color: transparent;
 }
-.company-edit i,.shop-edit i {
+.company-edit i,
+.shop-edit i {
   color: var(--eight-color);
   font-size: 25px;
   transition: all 0.5s;
 }
-.company-edit i:hover,.shop-edit i:hover {
+.company-edit i:hover,
+.shop-edit i:hover {
   color: var(--second-color);
 }
-.delete{
+.delete {
   background-color: var(--five-color);
   border-color: var(--five-color);
 }
-.edit:hover,.delete:hover,.company-edit:hover,.shop-edit:hover{
+.edit:hover,
+.delete:hover,
+.company-edit:hover,
+.shop-edit:hover {
   background-color: transparent;
   color: var(--eight-color);
 }
-.delete:hover{
+.delete:hover {
   color: var(--five-color);
 }
 .edit-box,
-.colors-box{
-  height: 100vh;
+.colors-box {
+height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -199,11 +211,13 @@ body {
   z-index: 1550;
 }
 .edit-box-container,
-.colors-box-container{
+.colors-box-container {
   background-color: var(--main-color);
   border-radius: 10px;
+  max-height: 90vh;
+  overflow-y: scroll;
 }
-.closer{
+.closer {
   width: 30px;
   height: 30px;
   display: flex;
@@ -213,13 +227,13 @@ body {
   font-size: 30px;
   cursor: pointer;
 }
-.closer i{
+.closer i {
   transition: all 0.5s;
 }
-.closer i:hover{
+.closer i:hover {
   color: var(--fourth-color);
 }
-.choose{
+.choose {
   padding: 10px 0;
   background-color: var(--thered-color);
   border-left: 1px solid var(--main-color);
@@ -227,11 +241,23 @@ body {
   opacity: 0.6;
   cursor: pointer;
   transition: all 0.5s;
-}.choose:last-child{
+}
+.choose:last-child {
   border-right: 1px solid var(--main-color);
 }
-.choose.active,.choose:hover{
+.choose.active,
+.choose:hover {
   opacity: 1;
+}
+.color-item{
+  height: 60px;
+  background-color: #1e76c4;
+  border-radius: 8px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.color-item:hover{
+  opacity: 0.8;
 }
 form input {
   padding: 7px 7px;
@@ -248,7 +274,7 @@ form input:focus {
 form input::placeholder {
   color: var(--titles-color);
 }
- button {
+button {
   background-color: var(--second-color);
   border: 2px solid var(--second-color);
   color: var(--main-color);
@@ -256,11 +282,11 @@ form input::placeholder {
   border-radius: 5px;
   transition: all 0.7s;
 }
- button:hover {
+button:hover {
   background-color: transparent;
   color: var(--second-color);
 }
-label.im{
+label.im {
   background-color: var(--five-color);
   color: var(--main-color);
   border-radius: 10px;
@@ -268,11 +294,11 @@ label.im{
   transition: all 0.5s;
   cursor: pointer;
 }
-label.im:hover{
+label.im:hover {
   background-color: transparent;
   color: var(--five-color);
 }
-label.sim{
+label.sim {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -297,7 +323,7 @@ label.sim{
   background-color: var(--eight-color);
   color: var(--main-color) !important;
 }
-.table tbody tr.admin td{
+.table tbody tr.admin td {
   background-color: var(--second-color);
 }
 .table tbody tr.user td {
@@ -315,26 +341,27 @@ footer img {
   width: 60px;
   height: 60px;
 }
-.pe{
+.pe {
   background-color: rgb(0 126 255 / 61%);
   border-radius: 8px;
 }
-.pe:nth-child(even){
+.pe:nth-child(even) {
   background-color: rgb(255 0 0 / 46%);
 }
-.pe div{
+.pe div {
   color: var(--main-color);
 }
 @media (min-width: 950px) and (max-width: 1500px) {
-  .left-side{
+  .left-side {
     width: 75% !important;
   }
-  .right-side{
+  .right-side {
     width: 25% !important;
   }
-  .box{
+  .box {
     width: 50% !important;
-  }.box.end{
+  }
+  .box.end {
     width: 100% !important;
   }
 }
@@ -377,7 +404,6 @@ footer img {
   }
 }
 @font-face {
-    font-family: main_font;
-    src: url(fonts/Almarai-Bold.ttf);
-  }
-  
+  font-family: main_font;
+  src: url(fonts/Almarai-Bold.ttf);
+}
