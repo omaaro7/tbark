@@ -72,6 +72,8 @@ async function check_activation() {
   });
 }
 async function setSimColor() {
+  let box = document.querySelector(".colors-box");
+  close(document.querySelector(".colors-closer i"), box, false);
   let colors = [
     "rgb(255, 0, 0)",
     "rgb(48, 161, 48)",
@@ -90,19 +92,15 @@ async function setSimColor() {
     "rgb(255, 99, 71)",
     "rgb(70, 130, 180)",
   ];
-  let box = document.querySelector(".colors-box");
+  
   let colorsBox = document.querySelectorAll("span.change label");
   let choose = document.querySelector(".choose-color");
   let colorsItemsBox = document.querySelector(".colors-items-box");
-   colors.forEach((ele,index) => {
-    console.log(index);
-    colorsItemsBox.innerHTML += colorsIt(ele)
-  })
-   close(
-    document.querySelector(".colors-closer i"),
-    box,
-    false
-  );
+  colors.forEach((ele, index) => {
+    colorsItemsBox.innerHTML += colorsIt(ele);
+  });
+  let itms = document.querySelectorAll(".color-item");
+
   info.map((ele, index) => {
     colorsBox[index].style.backgroundColor = `${ele.sim_color}`;
     colorsBox[
@@ -114,6 +112,29 @@ async function setSimColor() {
     ele.addEventListener("click", (e) => {
       box.classList.replace("d-none", "d-flex");
       choose.textContent = info[index].simname;
+      itms.forEach((ele) => {
+        ele.addEventListener("click", (e) => {
+          fetch(`../../routers/settings/sim_info/put_siminfo.php?id=${index + 1}`, {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "PUT",
+            body: JSON.stringify({ sim_color: e.target.dataset.color }),
+          }).then((res) => {
+            if (res.ok) {
+              Swal.fire({
+                icon: "success",
+                title: "تم التعديل بنجاح",
+              }).then(() => window.location.reload());
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "حدث خطأ",
+              });
+            }
+          });
+        });
+      });
     });
   });
 }
