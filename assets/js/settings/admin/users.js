@@ -1,5 +1,5 @@
 import { user } from "../../tools/card.js";
-
+import {close} from "../../tools/global_functions.js";
 let info = [];
 let all = 0;
 let admins = 0;
@@ -91,4 +91,21 @@ async function deleteUser() {
     });
   });
 }
-async function editUser () {}
+async function editUser () {
+  async function getUserInfo (id) {
+    const res = await fetch(`../../routers/settings/users/get_users.php?id=${id}`)
+      const data = await res.json();
+      return data;
+  }
+  const editers = document.querySelectorAll(".edit_user i");
+  const box = document.querySelector(".edit-box.user")
+  close(document.querySelector(".closer.edit-user-closer i"),box,false)
+  editers.forEach( (ele) => {
+    ele.addEventListener("click", async (e) => {
+      box.classList.replace("d-none","d-flex")
+      const id = e.target.parentElement.dataset.id;
+      const inf = await getUserInfo(id)
+      
+    })
+  })
+}
