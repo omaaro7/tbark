@@ -259,7 +259,7 @@ height: 100vh;
 .color-item:hover{
   opacity: 0.8;
 }
-form input {
+ input {
   padding: 7px 7px;
   color: var(--titles-color);
   border: none;
@@ -267,11 +267,11 @@ form input {
   border-radius: 5px;
   background-color: var(--background-color);
 }
-form input:focus {
+ input:focus {
   border: none;
   outline: none;
 }
-form input::placeholder {
+ input::placeholder {
   color: var(--titles-color);
 }
 button {
@@ -286,15 +286,18 @@ button:hover {
   background-color: transparent;
   color: var(--second-color);
 }
-label.im {
+label.im  div{
   background-color: var(--five-color);
   color: var(--main-color);
   border-radius: 10px;
   border: 2px solid var(--five-color);
   transition: all 0.5s;
   cursor: pointer;
+  height: 100%;
+  padding: 5px;
+  text-align: center;
 }
-label.im:hover {
+label.im div:hover {
   background-color: transparent;
   color: var(--five-color);
 }
@@ -332,6 +335,18 @@ label.sim {
 .table tbody td {
   color: var(--main-color);
   padding-top: 8px;
+}
+.delete_user i,.edit_user i {
+  color: var(--five-color);
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+.edit_user i {
+  color: var(--eight-color);
+}
+.edit_user i:hover,.delete_user i:hover{
+  opacity: 0.8;
 }
 footer {
   background-color: var(--thered-color);

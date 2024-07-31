@@ -23,11 +23,13 @@ async function getInfo() {
       id: ele.id,
       simname: ele.simname,
       simstate: ele.simstate,
-      sim_companey: ele.sim_companey,
+      sim_companey: ele.sim_company,
       sim_shop: ele.sim_shop,
       sim_color: ele.sim_color,
       company_state: ele.company_state,
       shop_state: ele.shop_state,
+      company_penefit_type: ele.company_penefit_type,
+      shop_penefit_type: ele.shop_penefit_type,
     };
     info.push(Sinfo);
   });
@@ -92,7 +94,7 @@ async function setSimColor() {
     "rgb(255, 99, 71)",
     "rgb(70, 130, 180)",
   ];
-  
+
   let colorsBox = document.querySelectorAll("span.change label");
   let choose = document.querySelector(".choose-color");
   let colorsItemsBox = document.querySelector(".colors-items-box");
@@ -114,13 +116,16 @@ async function setSimColor() {
       choose.textContent = info[index].simname;
       itms.forEach((ele) => {
         ele.addEventListener("click", (e) => {
-          fetch(`../../routers/settings/sim_info/put_siminfo.php?id=${index + 1}`, {
-            headers: {
-              "Content-Type": "application/json",
-            },
-            method: "PUT",
-            body: JSON.stringify({ sim_color: e.target.dataset.color }),
-          }).then((res) => {
+          fetch(
+            `../../routers/settings/sim_info/put_siminfo.php?id=${index + 1}`,
+            {
+              headers: {
+                "Content-Type": "application/json",
+              },
+              method: "PUT",
+              body: JSON.stringify({ sim_color: e.target.dataset.color }),
+            }
+          ).then((res) => {
             if (res.ok) {
               Swal.fire({
                 icon: "success",
@@ -231,6 +236,7 @@ async function manageAndEditPenefits() {
     false
   );
   switchChoises();
+  show_penefits();
   //'code
   const clickers = document.querySelectorAll(".per-edit ");
   clickers.forEach((ele, index) => {
@@ -258,6 +264,26 @@ async function manageAndEditPenefits() {
     });
   });
 }
+async function show_penefits() {
+  const company = document.querySelectorAll(".com-p");
+  const shop = document.querySelectorAll(".shop-p");
+  company.forEach((ele,index) => {
+    let st = "%";
+    if (info[index].company_penefit_type == 1) {
+      st = "جنيه";
+    }
+    console.log(info);
+      ele.firstElementChild.firstElementChild.textContent = info[index].sim_companey  + " " + st
+  });
+  shop.forEach((ele,index) => {
+    let st = "%";
+    if (info[index].shop_penefit_type == 1) {
+      st = "جنيه";
+    }
+    console.log(info);
+      ele.firstElementChild.firstElementChild.textContent = info[index].sim_shop  + " " + st
+  });
+}
 async function showEditBox(loc, nm, target) {
   const choises = document.querySelectorAll(".choose");
   const box = document.querySelector(".edit-box");
@@ -278,6 +304,7 @@ async function switchChoises() {
     ele.addEventListener("click", (e) => {
       choises.forEach((el) => el.classList.remove("active"));
       e.target.classList.add("active");
+      input.value = "";
       e.target.dataset.type == "mblh"
         ? (input.placeholder = "اكتب المبلع الجديد")
         : (input.placeholder = "اكتب النسبه الجديده"),

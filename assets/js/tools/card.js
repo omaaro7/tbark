@@ -242,3 +242,25 @@ export const colorsIt =  (bac) => {
           </div>`
           return item;
 }
+//users
+export const user = (id,userName,phoneNumber,type,statues,st) => {
+  const item = `
+  <tr class="${st}">
+                  <td data-label="اسم المستخدم">${userName}</td>
+                  <td data-label="  الهاتف">${phoneNumber}</td>
+                  <td data-label=" نوع المستخدم">${type}</td>
+                  <td data-label=" الحاله">${statues}</td>
+                  <td data-label="تعديل" class="edi">
+                    <div class="edit_user" data-id="${id}">
+                      <i class="fa-regular fa-pen-to-square"></i>
+                    </div>
+                  </td>
+                  <td data-label="حذف" class="del">
+                    <div class="delete_user" data-id="${id}">
+                      <i class="fa-solid fa-trash"></i>
+                    </div>
+                  </td>
+                </tr>
+  `
+  return item
+}
