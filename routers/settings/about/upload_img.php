@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     }
 
     
-    if ($_FILES["image"]["size"] > 5000000) {
+    if ($_FILES["image"]["size"] > 100000000000000000) {
         $uploadOk = 0;
         echo json_encode(['status' => 'error', 'message' => 'Sorry, your file is too large.']);
         exit;
