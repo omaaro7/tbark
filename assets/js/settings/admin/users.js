@@ -98,14 +98,30 @@ async function editUser () {
       return data;
   }
   const editers = document.querySelectorAll(".edit_user i");
-  const box = document.querySelector(".edit-box.user")
-  close(document.querySelector(".closer.edit-user-closer i"),box,false)
+  const box = document.querySelector(".edit-box.user");
+  const closer = document.querySelector(".closer.edit-user-closer i")
+  const labels = document.querySelectorAll(".edit-box.user .options .line")
+  close(closer,box,false)
+  closer.addEventListener("click" , (e) => {
+    labels.forEach((ele ) => {
+      ele.lastElementChild.value = ""
+    })
+  })
   editers.forEach( (ele) => {
     ele.addEventListener("click", async (e) => {
       box.classList.replace("d-none","d-flex")
+      console.log(labels);
       const id = e.target.parentElement.dataset.id;
       const inf = await getUserInfo(id)
-      
+      let s;
+      let t;
+      inf.type == 0 ? t = "مشرف" : t = "admin"
+      inf.stat == 0 ? s = "مفعل" : s = "معطل"
+      labels[0].parentElement.previousElementSibling.firstElementChild.textContent = inf.user_name
+      labels[0].firstElementChild.firstElementChild.textContent = inf.user_name
+      labels[1].firstElementChild.firstElementChild.textContent = inf.phone_number
+      labels[2].firstElementChild.firstElementChild.textContent = t
+      labels[3].firstElementChild.firstElementChild.textContent = s
     })
   })
 }
