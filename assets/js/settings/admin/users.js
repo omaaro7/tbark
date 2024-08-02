@@ -51,7 +51,6 @@ async function putUsersInTable() {
     tb.innerHTML += user(ele.id, ele.user_name, ele.phone_number, tp, st, kd);
   });
 }
-
 async function editUser() {
   async function getUserInfo(id) {
     const res = await fetch(
@@ -172,4 +171,7 @@ async function deleteUser () {
     })
   })
 
+}
+async function addUser () {
+  let adder = document.querySelector(".add-account .add");
 }

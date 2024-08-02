@@ -210,7 +210,7 @@ height: 100vh;
   background-color: #00000085;
   z-index: 1550;
 }
-.edit-box.user .edit-box-container{
+.edit-box.user .edit-box-container,.edit-box.add .edit-box-container{
   overflow-y: hidden !important;
 }
 .edit-box-container,
