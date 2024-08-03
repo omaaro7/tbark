@@ -1,63 +1,111 @@
 <?php
 
-// Database connection settings
-$dsn = 'mysql:host=127.0.0.1;dbname=tabark';
-$username = 'root';
-$password = '';
+// Database connection parameters
+$host = '127.0.0.1'; // Change this to your database host
+$dbname = 'tabark'; // Change this to your database name
+$dbUsername = 'root'; // Change this to your database username
+$dbPassword = ''; // Change this to your database password
 
-// Establish a database connection
+// Establish database connection using PDO
 try {
-    $pdo = new PDO($dsn, $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $dbUsername, $dbPassword);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+    die("Error: Could not connect. " . $e->getMessage());
 }
 
-// Check if data is sent via PUT request
+// Check if the request method is PUT
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    // Parse JSON input
-    $inputJSON = file_get_contents('php://input');
-    $input = json_decode($inputJSON, TRUE);
+    // Check if the user ID is provided as a query parameter
+    if (!isset($_GET['id'])) {
+        http_response_code(400); // Bad Request
+        echo json_encode(["error" => "User ID is required as a query parameter."]);
+        exit;
+    }
 
-    // Get ID from URL
-    $url_components = parse_url($_SERVER['REQUEST_URI']);
-    parse_str($url_components['query'], $params);
-    $id = $params['id'];
+    $userId = $_GET['id'];
 
-    if (!empty($id)) {
-        $updateValues = [];
+    // Retrieve JSON input
+    $input = json_decode(file_get_contents('php://input'), true);
 
-        // Build update query dynamically
-        foreach ($input as $column => $value) {
-            if ($column !== 'id') {
-                $updateValues[] = "$column = :$column";
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        http_response_code(400); // Bad Request
+        echo json_encode(["error" => "Invalid JSON input."]);
+        exit;
+    }
+
+    // Fields to update
+    $updatableFields = ['user_name', 'password', 'phone_number', 'type', 'stat'];
+    $data = [];
+
+    foreach ($updatableFields as $field) {
+        if (isset($input[$field])) {
+            $data[$field] = $input[$field];
+        }
+    }
+
+    if (empty($data)) {
+        http_response_code(400); // Bad Request
+        echo json_encode(["error" => "At least one field must be provided for update."]);
+        exit;
+    }
+
+    // Check if the user exists
+    try {
+        $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE id = ?");
+        $stmt->execute([$userId]);
+        $userExists = $stmt->fetchColumn();
+
+        if (!$userExists) {
+            http_response_code(404); // Not Found
+            echo json_encode(["error" => "User not found."]);
+            exit;
+        }
+
+        // Check if user name or phone number already exists for another user
+        if (isset($data['user_name'])) {
+            $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE user_name = ? AND id != ?");
+            $stmt->execute([$data['user_name'], $userId]);
+            $userNameExists = $stmt->fetchColumn();
+
+            if ($userNameExists) {
+                http_response_code(400); // Bad Request
+                echo json_encode(["error" => "User name already exists."]);
+                exit;
             }
         }
 
-        if (!empty($updateValues)) {
-            $updateQuery = "UPDATE users SET " . implode(', ', $updateValues) . " WHERE id = :id";
+        if (isset($data['phone_number'])) {
+            $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE phone_number = ? AND id != ?");
+            $stmt->execute([$data['phone_number'], $userId]);
+            $phoneExists = $stmt->fetchColumn();
 
-            // Prepare and execute the update query
-            $stmt = $pdo->prepare($updateQuery);
-            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-
-            foreach ($input as $column => $value) {
-                if ($column !== 'id') {
-                    $stmt->bindValue(":$column", $value);
-                }
+            if ($phoneExists) {
+                http_response_code(400); // Bad Request
+                echo json_encode(["error" => "Phone number already exists."]);
+                exit;
             }
-
-            $stmt->execute();
-
-            // Check if any rows were affected
-            $rowCount = $stmt->rowCount();
-        } else {
-            echo json_encode(array("message" => "No update values provided"));
         }
-    } else {
-        echo json_encode(array("message" => "Missing 'id' parameter in URL"));
+
+        // Prepare SQL statement to update the user data
+        $updateFields = [];
+        foreach ($data as $key => $value) {
+            $updateFields[] = "$key = ?";
+        }
+        $updateFieldsString = implode(', ', $updateFields);
+        $stmt = $pdo->prepare("UPDATE users SET $updateFieldsString WHERE id = ?");
+
+        // Execute the prepared statement with the provided data
+        $stmt->execute(array_merge(array_values($data), [$userId]));
+        echo json_encode(["message" => "User updated successfully."]);
+
+    } catch (PDOException $e) {
+        http_response_code(500); // Internal Server Error
+        echo json_encode(["error" => "Error: " . $e->getMessage()]);
     }
 } else {
-    echo json_encode(array("message" => "Invalid request method"));
+    // Handle unsupported HTTP methods
+    http_response_code(405); // Method Not Allowed
+    echo json_encode(["error" => "Only PUT requests are allowed."]);
 }
 ?>

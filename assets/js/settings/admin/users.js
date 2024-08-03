@@ -83,7 +83,7 @@ async function editUser() {
       const inf = await getUserInfo(id);
       let s;
       let t;
-      inf.type == 0 ? (t = "مشرف") : (t = "admin");
+      inf.type == 0 ? (t = "مشرف") : (t = "عامل");
       inf.stat == 0 ? (s = "مفعل") : (s = "معطل");
       labels[0].parentElement.previousElementSibling.firstElementChild.textContent =
         inf.user_name;
@@ -94,10 +94,18 @@ async function editUser() {
       labels[3].firstElementChild.firstElementChild.textContent = s;
       save.addEventListener("click", async (event) => {
         dt = {};
-        labels.forEach((ele) => {
+        labels.forEach((ele,index) => {
           if (ele.lastElementChild.value.trim() !== "") {
             dt[ele.lastElementChild.dataset.op] =
               ele.lastElementChild.value.trim();
+              if (index == 2) {
+                dt[ele.lastElementChild.dataset.op] =
+              ele.lastElementChild.dataset.type
+              }
+              if (index == 3) {
+                dt[ele.lastElementChild.dataset.op] =
+              ele.lastElementChild.dataset.stat
+              }
           }
         });
         Swal.fire({
@@ -115,18 +123,21 @@ async function editUser() {
               body: JSON.stringify(dt),
             }).then((res) => {
               res.json();
+              
               if (!res.ok) {
-                Swal.fire({
-                  title: "حدث خطأ",
-                  icon: "error",
-                });
                 if (res.status == 400) {
-                  Swal.FIRE({
-                    title: "خطأ",
-                    text: "رقم الهاتف او اسم المستخدم موجود بالفعل",
+                  Swal.fire({
+                    title: "رقم الهاتف او اسم المستخدم موجود بالفعل",
                     icon:"error"
                   })
+                }else{
+                  Swal.fire({
+                    title: "حدث خطأ",
+                    icon: "error",
+                  });
                 }
+                
+                
               } else {
                 Swal.fire({
                   title: "تم التعديل بنجاح",
@@ -141,6 +152,36 @@ async function editUser() {
       });
     });
   });
+  labels[2].lastElementChild.addEventListener("click" ,async (e) => {
+    const box = document.querySelector(".option-box.type");
+    const items = document.querySelectorAll(".option-box.type .item");
+    box.classList.replace("d-none","d-flex")
+    items.forEach((item) => {
+      item.addEventListener("click" ,async (event) => {
+        console.log(e.target);
+        
+        e.target.value = event.target.textContent
+        box.classList.replace("d-flex","d-none")
+        e.target.dataset.type = event.target.dataset.type
+        e.target.value = event.target.textContent
+      })
+    })
+  })
+  labels[3].lastElementChild.addEventListener("click" ,async (e) => {
+    const box = document.querySelector(".option-box.stat");
+    const items = document.querySelectorAll(".option-box.stat .item");
+    box.classList.replace("d-none","d-flex")
+    items.forEach((item) => {
+      item.addEventListener("click" ,async (event) => {
+        console.log(e.target);
+        
+        e.target.value = event.target.textContent
+        box.classList.replace("d-flex","d-none")
+        e.target.dataset.stat = event.target.dataset.stat
+        e.target.value = event.target.textContent
+      })
+    })
+  })
 }
 async function deleteUser() {
   const deleters = document.querySelectorAll(".delete_user i");
@@ -219,7 +260,6 @@ async function addUser() {
     box.classList.replace("d-none", "d-flex");
   });
   adder.addEventListener("click", async (e) => {
-    console.log("ererer");
     com = true;
     const t = await check_password(inputs);
     console.log(com);
