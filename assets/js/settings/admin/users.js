@@ -4,6 +4,7 @@ let info = [];
 let all = 0;
 let admins = 0;
 let workers = 0;
+let com = true;
 window.onload = async () => {
   const inf = await getInfo();
   const apl = await aplyFuncs();
@@ -32,6 +33,7 @@ async function aplyFuncs() {
   const t = await putUsersInTable();
   deleteUser();
   editUser();
+  addUser();
 }
 async function setUsersNumbers() {
   const boxes = document.querySelectorAll("div.number");
@@ -113,11 +115,18 @@ async function editUser() {
               body: JSON.stringify(dt),
             }).then((res) => {
               res.json();
-              if (res.status !== 200) {
+              if (!res.ok) {
                 Swal.fire({
                   title: "حدث خطأ",
                   icon: "error",
                 });
+                if (res.status == 400) {
+                  Swal.FIRE({
+                    title: "خطأ",
+                    text: "رقم الهاتف او اسم المستخدم موجود بالفعل",
+                    icon:"error"
+                  })
+                }
               } else {
                 Swal.fire({
                   title: "تم التعديل بنجاح",
@@ -133,7 +142,7 @@ async function editUser() {
     });
   });
 }
-async function deleteUser () {
+async function deleteUser() {
   const deleters = document.querySelectorAll(".delete_user i");
   deleters.forEach((deleter) => {
     deleter.addEventListener("click", async () => {
@@ -168,10 +177,102 @@ async function deleteUser () {
           });
         }
       });
-    })
-  })
-
+    });
+  });
 }
-async function addUser () {
-  let adder = document.querySelector(".add-account .add");
+async function check_password(inputs) {
+  for (let i = 0; i < inputs.length; i++) {
+    if (inputs[i].value.trim() == "") {
+      Swal.fire({
+        title: "الرجاء ملئ جميع الحقول",
+        icon: "error",
+      });
+      com = false;
+    }
+  }
+  if (inputs[4].value.trim() == "") {
+    Swal.fire({
+      title: " يجب كتابة كلمة المرور  ",
+      icon: "error",
+    });
+    com = false;
+  }
+  if (inputs[4].value.trim() !== inputs[5].value.trim()) {
+    Swal.fire({
+      title: "كلمة المرور غير متطابقة",
+      icon: "error",
+    });
+    com = false;
+  }
+}
+async function addUser() {
+  let box = document.querySelector(".edit-box.add");
+  let adder = document.querySelector(".edit-box.add .save button");
+  let inputs = document.querySelectorAll(".edit-box.add .options .line input");
+  let shower = document.querySelector(".add-account button");
+  let type_box = document.querySelector(".option-box.type");
+  let type_items = document.querySelectorAll(".option-box.type .item");
+  let stat_box = document.querySelector(".option-box.stat");
+  let stat_items = document.querySelectorAll(".option-box.stat .item");
+  close(document.querySelector(".edit-box.add .add-user-closer i"), box, false);
+  shower.addEventListener("click", async (e) => {
+    box.classList.replace("d-none", "d-flex");
+  });
+  adder.addEventListener("click", async (e) => {
+    console.log("ererer");
+    com = true;
+    const t = await check_password(inputs);
+    console.log(com);
+    if (com == true) {
+      fetch(`../../routers/settings/users/post_user.php`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          user_name: inputs[0].value.trim(),
+          phone_number: inputs[1].value.trim(),
+          password: inputs[4].value.trim(),
+          type: inputs[2].dataset.type,
+          stat: inputs[3].dataset.stat,
+        })
+      }).then((res) => {
+        if (res.ok) {
+          Swal.fire({
+            title: "تمت إضافة المستخدم بنجاح",
+            icon: "success",
+          }).then(() => {
+            window.location.reload();
+          })
+        }else if (!res.ok){
+          Swal.fire({
+            title: "حدث خطأ",
+            icon: "error",
+            text:"رقم الهاتف او اسم المستخدم موجود بالفعل"
+          })
+        }
+      })
+    }
+  });
+  inputs[2].addEventListener("click", (e) => {
+    type_box.classList.replace("d-none", "d-flex");
+    type_items.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        inputs[2].dataset.type = item.dataset.type;
+        inputs[2].value = e.target.textContent;
+        type_box.classList.replace("d-flex", "d-none");
+      });
+    });
+  });
+  inputs[3].addEventListener("click", (e) => {
+    stat_box.classList.replace("d-none", "d-flex");
+    stat_items.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        inputs[3].dataset.stat = item.dataset.stat;
+        inputs[3].value = e.target.textContent;
+        stat_box.classList.replace("d-flex", "d-none");
+        
+      });
+    });
+  });
 }

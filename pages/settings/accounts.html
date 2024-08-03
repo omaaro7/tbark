@@ -199,11 +199,11 @@
         </div>
       </div>
       <div
-        class="edit-box add  col-12 d-flex align-items-center justify-content-center"
+        class="edit-box add  col-12 d-none align-items-center justify-content-center"
       >
         <div class="edit-box-container col-11 col-md-9 col-lg-8 col-xl-7 px-2 pt-3 pb-4">
           <div
-          class="closer edit-user-closer position-absolute top-3 position-absolute"
+          class="closer add-user-closer position-absolute top-3 position-absolute"
         >
           <i class="fa-sharp fa-solid fa-circle-xmark"></i>
         </div>
@@ -219,11 +219,11 @@
           </div>
           <div class="line col-12 mt-3">
             <div class="opt-title">نوع المستخدم  <span></span></div>
-            <input type="text" class="option-input col-12 mt-1" data-op="type" placeholder="نوع النستخدم ...">
+            <input type="text" class="option-input col-12 mt-1" data-op="type" placeholder="نوع النستخدم ..." data-type="">
           </div>
           <div class="line col-12 mt-3">
             <div class="opt-title"> الحاله  <span></span></div>
-            <input type="text" class="option-input col-12 mt-1"  data-op="stat" placeholder=" حالة امستخدم ...">
+            <input type="text" class="option-input col-12 mt-1"  data-op="stat" placeholder=" حالة امستخدم ..." data-stat="">
           </div>
           <div class="line col-12 mt-3">
             <div class="opt-title"> كلمة المرور  <span></span></div>
@@ -235,6 +235,34 @@
           <div class="save">
             <button type="button" class=" mt-2 px-3 py-1"> اضافة</button>
           </div>
+        </div>
+        </div>
+      </div>
+      <div class="option-box type col-12 d-none align-items-center justify-content-center">
+        <div class="option-box-container col-11 col-md-9 col-lg-8 col-xl-7 px-2 pt-3 pb-4">
+          <div
+          class="closer option-closer position-absolute top-3 position-absolute"
+        >
+          <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+        </div>
+        <div class="title col-12 text-center fs-5">نوع المستحدم</div>
+        <div class="items-boxcol-12 mt-2">
+          <button class="item col-12 text-center py-3" data-type="0">مشرف</button>
+          <button class="item mt-2  col-12 text-center py-3 " data-type="1">عامل</button>
+        </div>
+        </div>
+      </div>
+      <div class="option-box stat col-12 d-none align-items-center justify-content-center">
+        <div class="option-box-container col-11 col-md-9 col-lg-8 col-xl-7 px-2 pt-3 pb-4">
+          <div
+          class="closer option-closer position-absolute top-3 position-absolute"
+        >
+          <i class="fa-sharp fa-solid fa-circle-xmark"></i>
+        </div>
+        <div class="title col-12 text-center fs-5"> حالة المستخدم</div>
+        <div class="items-boxcol-12 mt-2">
+          <button class="item col-12 text-center py-3" data-stat="1">مفعل</button>
+          <button class="item mt-2  col-12 text-center py-3 " data-stat="0">معطل</button>
         </div>
         </div>
       </div>
