@@ -71,6 +71,9 @@ body {
   transform: scale3d(1.05,1.05,1);
   z-index: 1000;
 }
+.items .item-container.dis .item:hover{
+  transform: scale3d(1,1,1);
+}
 footer {
   background-color: var(--thered-color);
   color: var(--main-color);

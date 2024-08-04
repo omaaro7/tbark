@@ -77,10 +77,15 @@ function updateImageNameInDatabase($imageName) {
 
     
     $sql = "UPDATE shopinfo SET shop_img='$imageName' WHERE id=1"; 
+    $Sql = "UPDATE siteinfo SET shop_img='$imageName' WHERE id=1"; 
     
+    if ($conn->query($Sql) === TRUE) {
+        echo json_encode(['status' => 'success', 'message' => 'Record updated successfully']);
+    }
     if ($conn->query($sql) === TRUE) {
         echo json_encode(['status' => 'success', 'message' => 'Record updated successfully']);
-    } else {
+    } 
+     else {
         echo json_encode(['status' => 'error', 'message' => 'Error updating record: ' . $conn->error]);
     }
 
