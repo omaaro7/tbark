@@ -77,7 +77,7 @@ body {
 }
 footer {
   background-color: var(--thered-color);
-  color: var(--titles-color);
+  color: white;
 }
 footer img {
   width: 60px;
@@ -91,7 +91,7 @@ footer img {
   background-color: rgb(255 0 0 / 46%);
 }
 .pe div{
-  color: var(--main-color);
+  color: white;
 }
 @font-face {
   font-family: main_font;
