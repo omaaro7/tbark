@@ -1,14 +1,14 @@
 //---------------------------sim cards page----------------------------
-export const simCard = (number, name, id,type) => {
+export const simCard = (number, name, id,type,color,opacity) => {
   const item = `
-  <tr class="${type}">
-                    <td data-label="الرقم">${number}</td>
-                    <td data-label="اسم الخط">${name}</td>
-                    <td data-label="اسم الخط">${type}</td>
-                    <td data-label="تعديل" class="edi">
+  <tr class="${type}" >
+                    <td data-label="الرقم" style="background: ${color}; opacity: ${opacity}">${number}</td>
+                    <td data-label="اسم الخط" style="background: ${color}; opacity: ${opacity}">${name}</td>
+                    <td data-label="اسم الخط" style="background: ${color}; opacity: ${opacity}">${type}</td>
+                    <td data-label="تعديل" class="edi" style="background: ${color}; opacity: ${opacity}"> 
                   <div class="edit" data-id="${id}"><i class="fa-regular fa-pen-to-square"></i></div>
                 </td>
-                <td data-label="حذف" class="del">
+                <td data-label="حذف" class="del" style="background: ${color}; opacity: ${opacity}">
                     <div class="delete" data-id="${id}"><i class="fa-regular fa-trash"></i></div>
                 </td>
                 </tr>`;
@@ -241,6 +241,15 @@ export const colorsIt =  (bac) => {
             <div class="color-item col-11" style="background:${bac}" data-color="${bac}"></div>
           </div>`
           return item;
+}
+export const simc = (name,type) => {
+  const item = `
+  <div
+                class="type-item col-12 py-2 d-flex justify-content-center align-items-center mt-1"
+                data-type="${type}"
+              >${name}
+              </div>`
+              return item;
 }
 //users
 export const user = (id,userName,phoneNumber,type,statues,st) => {
