@@ -1,4 +1,8 @@
 import { simc, simCard } from "../../../tools/card.js";
+import { close } from "../../../tools/global_functions.js";
+close
+let accept = false;
+let info
 export const setSimsInBox = async () => {
   const box = document.querySelector(".types-box-items");
   const res = await fetch("../routers/settings/sim_info/get_siminfo.php");
@@ -10,6 +14,7 @@ export const setSimsInBox = async () => {
       box.innerHTML += simc(ele.simname, index);
     }
   });
+  info = data
 };
 export const setColorsInTable = async () => {
   const colors = [];
@@ -59,5 +64,59 @@ export const setColorsInTable = async () => {
       color,
       op
     );
+  });
+};
+export const showSimCardType = async () =>  {
+  const clicker = document.querySelector(".sim-type");
+  const itms = document.querySelectorAll(".type-item");
+  const box = document.querySelector(".types-box-main");
+  clicker.addEventListener("click", (e) => {
+    box.classList.replace("d-none", "d-flex");
+    console.log(true);
+    console.log(itms);
+    
+    itms.forEach((item) => {
+      item.addEventListener("click", (e) => {
+        box.classList.replace("d-flex", "d-none");
+        clicker.value = e.target.innerHTML;
+        clicker.dataset.type = e.target.dataset.type;
+        accept = true;
+      });
+    });
+  });
+  close(document.querySelector(".types-closer i"), box, false);
+
+}
+export const autoSelectType = async () => {
+  const item = document.querySelector(".num");
+  const type = document.querySelector(".sim-type");
+  item.addEventListener("input", (e) => {
+    if (!accept) {
+      if (
+        !e.target.value.startsWith("010") ||
+        !e.target.value.startsWith("012") ||
+        !e.target.value.startsWith("011") ||
+        !e.target.value.startsWith("015")
+      ) {
+        type.value = "";
+        type.dataset.type = "";
+      }
+      if (e.target.value.startsWith("010") && info[0].simstate == 1) {
+        type.value = "Vodafone";
+        type.dataset.type = "0";
+      }
+      if (e.target.value.startsWith("012") && info[1].simstate == 1) {
+        type.value = "Orange";
+        type.dataset.type = "1";
+      }
+      if (e.target.value.startsWith("011") && info[2].simstate == 1) {
+        type.value = "Etisalat";
+        type.dataset.type = "2";
+      }
+      if (e.target.value.startsWith("015") && info[3].simstate == 1) {
+        type.value = "We";
+        type.dataset.type = "3";
+      }
+    }
   });
 };

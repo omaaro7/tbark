@@ -91,7 +91,7 @@ body {
 .s-option:hover {
   color: var(--second-color);
 }
-.add-operation{
+.add-operation {
   min-height: 90%;
 }
 .add-ope-title {
@@ -99,12 +99,13 @@ body {
 }
 form {
   padding: 10px 5px;
-  background-color: var(--eight-color);
+  background-color: var(--main-color);
   border-radius: 10px;
+  box-shadow: -4px 3px 7px 5px #00000033;
 }
 form input,
 .show-number-form input {
-  background-color: var(--main-color);
+  background-color: var(--background-color);
   padding: 7px 7px;
   color: var(--titles-color);
   border: none;
@@ -130,6 +131,23 @@ form button:hover {
   background-color: transparent;
   color: var(--second-color);
 }
+.ope-view div i {
+  color: var(--eight-color);
+}
+.ope-view div.active,
+.ope-view div:not(.active):hover {
+  padding: 5px 15px;
+  background-color: var(--second-color);
+  border-radius: 10px;
+  border: 2px solid var(--second-color);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.ope-view div:hover i,
+.ope-view div.active i {
+  color: var(--main-color);
+}
 .simCardsShowerMain,
 .opeShowerMain,
 .agl-given-box,
@@ -153,7 +171,7 @@ form button:hover {
   max-height: 70%;
   overflow-y: scroll;
 }
-.show-number{
+.show-number {
   overflow: hidden;
 }
 .simCardsShower::-webkit-scrollbar,
@@ -166,7 +184,7 @@ form button:hover {
   background-color: transparent;
   border-radius: 3px;
 }
-.opeShower::-webkit-scrollbar{
+.opeShower::-webkit-scrollbar {
   display: none;
 }
 .main .right-side::-webkit-scrollbar {
@@ -266,7 +284,7 @@ label {
 .ope {
   background-color: var(--main-color);
   border-radius: 7px;
-  box-shadow: -4px 3px 7px 5px #00000033;;
+  box-shadow: -4px 3px 7px 5px #00000033;
   transition: all 0.5s;
   font-size: 1em;
 }
@@ -349,14 +367,13 @@ label {
 }
 .option:hover,
 .o:hover {
-  transform: scale(1.05) ;
+  transform: scale(1.05);
 }
-.bt{
+.bt {
   color: white;
 }
-.bt:hover{
+.bt:hover {
   transform: scale(1.05) !important;
-
 }
 .head {
   color: var(--titles-color);
@@ -451,30 +468,31 @@ label {
 .debt-given .closer i,
 .part-box .closer i,
 .show-number .closer i,
-.simCards-closer i{
+.simCards-closer i {
   transition: all 0.6s;
 }
 .agl-given .closer i:hover,
 .debt-given .closer i:hover,
 .part-box .closer i:hover,
 .show-number .closer i:hover,
-.simCards-closer i:hover{
+.simCards-closer i:hover {
   color: var(--fourth-color);
 }
-.show-number-form button{
+.show-number-form button {
   border: 2px solid var(--second-color);
   background-color: var(--second-color);
   color: white;
   transition: all 0.6s;
 }
-.show-number-form input{
+.show-number-form input {
   border: 2px solid var(--second-color);
 }
-.show-number-form input:focus{
+.show-number-form input:focus {
   outline: none;
   border-color: var(--eight-color);
-}.show-number-form input::placeholder{
-  color:var(--seven-color);
+}
+.show-number-form input::placeholder {
+  color: var(--seven-color);
 }
 .recivedSend {
   color: var(--titles-color);
@@ -489,22 +507,22 @@ label {
   color: var(--second-color) !important;
 }
 .pagination-box-con,
-.pagination-box-con-agl
-  {
+.pagination-box-con-agl {
   width: fit-content;
 }
-.page-item{
+.page-item {
   border: 2px solid var(--eight-color);
   width: 35px;
   height: 35px;
-  border-radius:50%;
+  border-radius: 50%;
   transition: all 0.5s;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.page-item.active , .page-item:hover{
+.page-item.active,
+.page-item:hover {
   background-color: var(--eight-color);
   color: var(--main-color);
 }
@@ -559,14 +577,14 @@ footer img {
   .ope button {
     font-size: 1em;
   }
-  .right-side{
+  .right-side {
     width: 20% !important;
     height: 74%;
   }
-  .left-side{
+  .left-side {
     width: 80% !important;
   }
-  footer{
+  footer {
     margin-top: 50px !important;
   }
 }

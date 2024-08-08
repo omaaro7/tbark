@@ -1,6 +1,6 @@
 :root {
   --background-color: #eceff4;
-  --main-color: #f3f4f6;
+  --main-color: #ffffff;
   --titles-color: rgb(1, 1, 1);
   --second-color: #ff2949;
   --thered-color: rgb(156 163 175);
@@ -42,11 +42,12 @@ body {
 }
 form {
   padding: 10px 5px;
-  background-color: var(--eight-color);
+  background-color: var(--main-color);
   border-radius: 10px;
+  box-shadow: -4px 3px 7px 5px #00000033  ;
 }
 form input {
-  background-color: var(--main-color);
+  background-color: var(--background-color);
   padding: 7px 7px;
   color: var(--titles-color);
   border: none;
@@ -77,6 +78,7 @@ form button:hover {
   border-collapse: collapse;
   direction: rtl;
   color: var(--titles-color);
+  box-shadow: -4px 3px 7px 5px #00000033  ;
 }
 
 .table td,
@@ -132,6 +134,7 @@ form button:hover {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
   background-color: #00000085;
 }
 .edit-main-box,
@@ -148,6 +151,7 @@ form button:hover {
   margin-top: 10px;
   border-radius: 6px;
   padding: 0 10px;
+  background-color: var(--background-color);
 }
 label {
   margin-top: 10px;

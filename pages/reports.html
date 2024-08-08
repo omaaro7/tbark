@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/all.css" />
     <link rel="stylesheet" href="../assets/css/aos.css" />
     <link rel="stylesheet" href="../assets/css/bootstrap.css" />
@@ -13,46 +13,86 @@
     <link rel="stylesheet" href="../assets/css/sweetalert2.css" />
     <link rel="stylesheet" href="../assets/css/reports.css" />
     <title>التقارير</title>
-</head>
-<body>
-    <header class="header py-2 col-12 d-flex px-3 justify-content-between align-items-center">
-        <div class="logoAndName d-flex align-items-center">
-          <div class="logo"><img src="../assets/imgs/logo.png" alt="" /></div>
-          <div class="name fs-5 py-2 me-3 d-none d-md-block">
-            إدارة فودافون كاش
+  </head>
+  <body>
+    <header
+      class="header py-2 col-12 d-flex px-3 justify-content-between align-items-center"
+    >
+      <div class="logoAndName d-flex align-items-center">
+        <div class="logo"><img src="../assets/imgs/logo.png" alt="" /></div>
+        <div class="name fs-5 py-2 me-3 d-none d-md-block">
+          إدارة فودافون كاش
+        </div>
+      </div>
+      <div class="name fs-4" style="color: var(--titles-color)">
+        صفحة التقارير
+      </div>
+      <div class="profile">
+        <div class="img">
+          <img src="../assets/imgs/profile.jpg" alt="" />
+        </div>
+      </div>
+    </header>
+    <section class="main col-12">
+      <div class="pens mt-3 d-flex">
+        <div class="containre col-12 col-md-4 d-flex justify-content-center">
+          <div class="container-content col-11 p-3">
+            <div class="icon col-12">
+              <i class="fa-duotone fa-solid fa-badge-dollar"></i>
+            </div>
+            <div class="description col-12 d-flex justify-content-between mt-2">
+              <div class="name">المشرفون</div>
+              <div class="number"></div>
+            </div>
           </div>
         </div>
-        <div class="name fs-4" style="color:var(--titles-color)">صفحة التقارير</div>
-        <div class="profile">
-          <div class="img">
-            <img src="../assets/imgs/profile.jpg" alt="" />
+        <div class="containre col-12 col-md-4 d-flex justify-content-center">
+          <div class="container-content col-11 p-3">
+            <div class="icon col-12">
+              <i class="fa-duotone fa-solid fa-money-bill-wave"></i>
+            </div>
+            <div class="description col-12 d-flex justify-content-between mt-2">
+              <div class="name">المشرفون</div>
+              <div class="number"></div>
+            </div>
           </div>
         </div>
-      </header>
-      <section class="main col-12"></section>
-      <footer class="py-3 mt-2 col-12">
-        <div class="social col-12 d-flex justify-content-center">
-          <div class="faceBook ms-2">
-            <a href="https://www.facebook.com/omar.wafeek.526">
-              <img src="../assets/imgs/facebook.png" alt="" />
-            </a>
-          </div>
-          <div class="whatsApp">
-            <a href="https://wa.me/+201097178081">
-              <img src="../assets/imgs/whatsApp.png" alt="" />
-            </a>
-          </div>
-          <div class="gitHub me-2">
-            <a href="https://github.com/omaaro7">
-              <img src="../assets/imgs/github.png" alt="" />
-            </a>
+        <div class="containre col-12 col-md-4 d-flex justify-content-center">
+          <div class="container-content col-11 p-3">
+            <div class="icon col-12">
+              <i class="fa-duotone fa-solid fa-sack-dollar"></i>
+            </div>
+            <div class="description col-12 d-flex justify-content-between mt-2">
+              <div class="name">المشرفون</div>
+              <div class="number"></div>
+            </div>
           </div>
         </div>
-        <p class="col-12 text-center mt-2 mb-0">
-          all copy rights reverse to omar wafeek &copy;
-        </p>
-      </footer>
-  
+      </div>
+    </section>
+    <footer class="py-3 mt-2 col-12">
+      <div class="social col-12 d-flex justify-content-center">
+        <div class="faceBook ms-2">
+          <a href="https://www.facebook.com/omar.wafeek.526">
+            <img src="../assets/imgs/facebook.png" alt="" />
+          </a>
+        </div>
+        <div class="whatsApp">
+          <a href="https://wa.me/+201097178081">
+            <img src="../assets/imgs/whatsApp.png" alt="" />
+          </a>
+        </div>
+        <div class="gitHub me-2">
+          <a href="https://github.com/omaaro7">
+            <img src="../assets/imgs/github.png" alt="" />
+          </a>
+        </div>
+      </div>
+      <p class="col-12 text-center mt-2 mb-0">
+        all copy rights reverse to omar wafeek &copy;
+      </p>
+    </footer>
+
     <script src="../assets/js/bootstrap.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/tools/sweetalert2.js"></script>
@@ -66,6 +106,11 @@
       AOS.init();
     </script>
     <script type="module" src="../assets/js/tools/card.js"></script>
+    <script
+      type="module"
+      src="../assets/js/settings/client/general/siteinfo.js"
+    ></script>
+    <script src="../assets/js/tools/chart.js"></script>
     <script type="module" src="../assets/js/reports.js"></script>
-</body>
+  </body>
 </html>

@@ -2,19 +2,21 @@
 import {
   setSimsInBox,
   setColorsInTable,
+  autoSelectType,
+  showSimCardType,
 } from "./settings/client/simcards/simcards.js";
 import { close } from "./tools/global_functions.js";
 //helping vars
-let tableBody = document.querySelector(".table tbody");
 
 async function apply() {
-  setSimsInBox();
+  const t = await setSimsInBox();
+  showSimCardType();
   sel();
 }
 window.onload = async () => {
   let x = await apply();
   autoSelectType();
-  showSimCardType();
+
   let d = await setColorsInTable();
   let r = await sel();
 };
@@ -22,7 +24,7 @@ async function sel() {
   let deleteItems = document.querySelectorAll("table tbody tr td.del");
   console.log(deleteItems);
   let editItems = document.querySelectorAll("table tbody tr td.edi");
-  console.log(editItems)
+  console.log(editItems);
   let adder = document.querySelector("form button");
   let delAll = document.querySelector("button.delAll");
   let exc = document.querySelector("button.downExcel");
@@ -33,13 +35,17 @@ async function sel() {
     addSimCard();
   });
   editItems.forEach((ele, index) => {
-    ele.addEventListener("click", (e) => {
-      editSimCard(e.target.dataset.id);
+    ele.firstElementChild.addEventListener("click", (e) => {
+      if (e.target.classList.contains("edit")) {
+        editSimCard(e.target.dataset.id);
+      }
     });
   });
   deleteItems.forEach((ele, index) => {
-    ele.addEventListener("click", (e) => {
-      deleteSimCard(e.target.dataset.id);
+    ele.firstElementChild.addEventListener("click", (e) => {
+      if (e.target.classList.contains("delete")) {
+        deleteSimCard(e.target.dataset.id);
+      }
     });
   });
   exc.addEventListener("click", () => {
@@ -55,56 +61,7 @@ async function sel() {
     deleteAll(data);
   });
 }
-async function showSimCardType() {
-  const clicker = document.querySelector(".sim-type");
-  const itms = document.querySelectorAll(".type-item");
-  const box = document.querySelector(".types-box-main");
-  clicker.addEventListener("click", (e) => {
-    box.classList.replace("d-none", "d-flex");
-  });
-  itms.forEach((item) => {
-    item.addEventListener("click", (e) => {
-      box.classList.replace("d-flex", "d-none");
-      clicker.value = e.target.innerHTML;
-      clicker.dataset.type = e.target.dataset.type;
-      accept = true;
-    });
-  });
-  close(document.querySelector(".types-closer i"), box, false);
-}
-async function autoSelectType() {
-  const item = document.querySelector(".num");
-  const type = document.querySelector(".sim-type");
-  item.addEventListener("input", (e) => {
-    if (!accept) {
-      if (
-        !e.target.value.startsWith("010") ||
-        !e.target.value.startsWith("012") ||
-        !e.target.value.startsWith("011") ||
-        !e.target.value.startsWith("015")
-      ) {
-        type.value = "";
-        type.dataset.type = "";
-      }
-      if (e.target.value.startsWith("010")) {
-        type.value = "Vodafone";
-        type.dataset.type = "0";
-      }
-      if (e.target.value.startsWith("012")) {
-        type.value = "Orange";
-        type.dataset.type = "1";
-      }
-      if (e.target.value.startsWith("011")) {
-        type.value = "Etisalat";
-        type.dataset.type = "2";
-      }
-      if (e.target.value.startsWith("015")) {
-        type.value = "We";
-        type.dataset.type = "3";
-      }
-    }
-  });
-}
+
 function addSimCard() {
   let inputs = document.querySelectorAll("form input");
   if (
@@ -153,8 +110,8 @@ function addSimCard() {
   }
 }
 async function editSimCard(f) {
-  const res = await fetch(`../routers/simCards/get_simCards.php?id=${f}`)
-  const data = await res.json()
+  const res = await fetch(`../routers/simCards/get_simCards.php?id=${f}`);
+  const data = await res.json();
   let box = document.querySelector(".edit-main");
   let labels = document.querySelectorAll(".edit-main-box .editing-form label");
   let inputs = document.querySelectorAll(".edit-main-box .editing-form input");
