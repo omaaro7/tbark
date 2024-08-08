@@ -34,38 +34,99 @@
       </div>
     </header>
     <section class="main col-12">
-      <div class="pens mt-3 d-flex">
-        <div class="containre col-12 col-md-4 d-flex justify-content-center">
-          <div class="container-content col-11 p-3">
-            <div class="icon col-12">
-              <i class="fa-duotone fa-solid fa-badge-dollar"></i>
+      <div class="showers col-12">
+        <div class="opes mt-3 d-flex flex-wrap">
+          <div
+            class="containre  d col-12 col-md-4 d-flex justify-content-center" data-aos="zoom-in"
+          >
+            <div class="container-content col-11 p-3">
+              <div class="icon col-12">
+                <i class="fa-duotone fa-solid fa-wallet"></i>
+              </div>
+              <div class="description col-12 d-flex justify-content-between mt-2">
+                <div class="name">عمليات اليوم :</div>
+                <div class="number"></div>
+              </div>
             </div>
-            <div class="description col-12 d-flex justify-content-between mt-2">
-              <div class="name">المشرفون</div>
-              <div class="number"></div>
+          </div>
+          <div
+            class="containre w col-12 col-md-4 d-flex justify-content-center" data-aos="zoom-in"
+          >
+            <div class="container-content col-11 p-3">
+              <div class="icon col-12">
+                <i class="fa-duotone fa-solid fa-money-bills"></i>              </div>
+              <div class="description col-12 d-flex justify-content-between mt-2">
+                <div class="name">عمليات الأسبوع :</div>
+                <div class="number"></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="containre m col-12 col-md-4 d-flex justify-content-center" data-aos="zoom-in"
+          >
+            <div class="container-content col-11 p-3">
+              <div class="icon col-12">
+                <i class="fa-duotone fa-solid fa-cash-register"></i>
+              </div>
+              <div class="description col-12 d-flex justify-content-between mt-2">
+                <div class="name">عمليات الشهر :</div>
+                <div class="number"></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="containre col-12 col-md-4 d-flex justify-content-center">
-          <div class="container-content col-11 p-3">
-            <div class="icon col-12">
-              <i class="fa-duotone fa-solid fa-money-bill-wave"></i>
+        <div class="pens mt-3 d-flex flex-wrap">
+          <div
+            class="containre day col-12 col-md-4 d-flex justify-content-center" data-aos="zoom-in"
+          >
+            <div class="container-content col-11 p-3">
+              <div class="icon col-12">
+                <i class="fa-duotone fa-solid fa-badge-dollar"></i>
+              </div>
+              <div class="description col-12 d-flex justify-content-between mt-2">
+                <div class="name">اجمالي الربح اليومي :</div>
+                <div class="number"></div>
+              </div>
             </div>
-            <div class="description col-12 d-flex justify-content-between mt-2">
-              <div class="name">المشرفون</div>
-              <div class="number"></div>
+          </div>
+          <div
+            class="containre week col-12 col-md-4 d-flex justify-content-center"data-aos="zoom-in"
+          >
+            <div class="container-content col-11 p-3">
+              <div class="icon col-12">
+                <i class="fa-duotone fa-solid fa-money-bill-wave"></i>
+              </div>
+              <div class="description col-12 d-flex justify-content-between mt-2">
+                <div class="name">اجمالي الربح الأسبوعي :</div>
+                <div class="number"></div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="containre month col-12 col-md-4 d-flex justify-content-center"data-aos="zoom-in"
+          >
+            <div class="container-content col-11 p-3">
+              <div class="icon col-12">
+                <i class="fa-duotone fa-solid fa-sack-dollar"></i>
+              </div>
+              <div class="description col-12 d-flex justify-content-between mt-2">
+                <div class="name">اجمالي الربح الشهري :</div>
+                <div class="number"></div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="containre col-12 col-md-4 d-flex justify-content-center">
-          <div class="container-content col-11 p-3">
-            <div class="icon col-12">
-              <i class="fa-duotone fa-solid fa-sack-dollar"></i>
-            </div>
-            <div class="description col-12 d-flex justify-content-between mt-2">
-              <div class="name">المشرفون</div>
-              <div class="number"></div>
-            </div>
+      </div>
+      <div class="boxes px-4 mt-3 d-flex justify-content-between flex-wrap">
+        <div class="box col-12 col-lg-6 d-flex mt-1">
+          <div class="box-container col-11">
+            <div class="box-header py-2 text-center">احدث العمليات</div>
+            <div class="box-cont col-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quam et dolor necessitatibus nihil exercitationem voluptates maiores perferendis, quidem amet rerum non, minus quia voluptatem. Quisquam iusto excepturi nobis debitis.</div>
+          </div>
+        </div><div class="box col-12 col-lg-6 d-flex justify-content-lg-end mt-1">
+          <div class="box-container col-11">
+            <div class="box-header py-2 text-center">احدث العمليات</div>
+            <div class="box-cont col-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate quam et dolor necessitatibus nihil exercitationem voluptates maiores perferendis, quidem amet rerum non, minus quia voluptatem. Quisquam iusto excepturi nobis debitis.</div>
           </div>
         </div>
       </div>
@@ -103,7 +164,9 @@
     ></script>
     <script src="../assets/js/tools/aos.js"></script>
     <script>
-      AOS.init();
+      AOS.init({
+        duration: 700,
+      });
     </script>
     <script type="module" src="../assets/js/tools/card.js"></script>
     <script

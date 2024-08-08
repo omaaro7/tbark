@@ -13,7 +13,7 @@ input[type="number"] {
   --main-color: #f3f4f6;
   --titles-color: rgb(1, 1, 1);
   --second-color: #ff2949;
-  --thered-color: rgb(156 163 175);
+  --thered-color: rgb(184 192 205);
   --fourth-color: #6abff7;
   --five-color: #ba9544;
   --six-color: #4e3434;
@@ -57,12 +57,44 @@ body {
   box-shadow: -5px 4px 9px 1px #00000045;
   color: var(--main-color);
   font-size: 20px;
+  transition:  all 0.5s;
 }
 .container-content .description{
   color: var(--main-color);
 }
 .container-content .icon i{
   font-size: 65px;
+}
+.containre.week .container-content {
+  background-color: var(--second-color);
+}
+.containre.month .container-content {
+  background-color: var(--five-color);
+}
+
+
+.containre.d .container-content {
+  background-color: var(--titles-color);
+}.containre.w .container-content {
+  background-color: var(--six-color);
+}.containre.m .container-content {
+  background-color: var(--fourth-color);
+}
+.container-content:hover{
+  opacity: 0.7;
+}
+.box-header{
+  background-color: var(--thered-color);
+  border-radius: 10px 10px 0 0;
+  color: var(--main-color);
+}
+.box-cont{
+  min-height: fit-content;
+  max-height: 1000px;
+  border-bottom:2px solid var(--thered-color) ;
+  border-right:2px solid var(--thered-color) ;
+  border-left:2px solid var(--thered-color) ;
+  border-radius: 0 0 10px 10px;
 }
 footer {
   clear: both;
