@@ -20,9 +20,17 @@ input[type="number"] {
   --seven-color: #5c5470;
   --eight-color: #1e76c4;
 }
+
+
+
 body {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  font-family: main_font;
+  position: relative;
 }
 main {
   min-height: 80vh;
@@ -54,16 +62,6 @@ main {
 .main .right-side::-webkit-scrollbar-button,
 .colors-box-container::-webkit-scrollbar-button {
   display: none;
-}
-
-body {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  font-family: main_font;
-  position: relative;
 }
 .header {
   background-color: var(--main-color);

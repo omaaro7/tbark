@@ -10,7 +10,7 @@ input[type="number"] {
 }
 :root {
   --background-color: #eceff4;
-  --main-color: #f3f4f6;
+  --main-color: #ffffff;
   --titles-color: rgb(1, 1, 1);
   --second-color: #ff2949;
   --thered-color: rgb(184 192 205);
@@ -19,6 +19,7 @@ input[type="number"] {
   --six-color: #4e3434;
   --seven-color: #5c5470;
   --eight-color: #1e76c4;
+  --nine-color:rgb(130 177 255);
 }
 
 body {
@@ -51,6 +52,18 @@ body {
 .main{
   min-height: 85vh;
 }
+button {
+  background-color: var(--second-color);
+  border: 2px solid var(--second-color);
+  color: var(--main-color);
+  padding: 7px 0;
+  border-radius: 5px;
+  transition: all 0.7s;
+}
+button:hover {
+  background-color: transparent;
+  color: var(--second-color);
+}
 .container-content{
   background-color: #1e76c4;
   border-radius: 6px;
@@ -72,7 +85,9 @@ body {
   background-color: var(--five-color);
 }
 
-
+.container-content{
+  margin-top: 10px;
+}
 .containre.d .container-content {
   background-color: var(--titles-color);
 }.containre.w .container-content {
@@ -84,17 +99,43 @@ body {
   opacity: 0.7;
 }
 .box-header{
-  background-color: var(--thered-color);
+  background-color: var(--nine-color);
   border-radius: 10px 10px 0 0;
   color: var(--main-color);
 }
 .box-cont{
-  min-height: fit-content;
-  max-height: 1000px;
-  border-bottom:2px solid var(--thered-color) ;
-  border-right:2px solid var(--thered-color) ;
-  border-left:2px solid var(--thered-color) ;
+  border-bottom:2px solid var(--nine-color) ;
+  border-right:2px solid var(--nine-color) ;
+  border-left:2px solid var(--nine-color) ;
   border-radius: 0 0 10px 10px;
+}
+.item{
+  text-align: center;
+  font-size: 16px;
+}
+.box-opes{
+  min-height: fit-content;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.box-opes::-webkit-scrollbar{
+  display: block;
+  width: 10px;
+}
+.box-opes::-webkit-scrollbar-button{
+  display: none;
+}
+.box-opes::-webkit-scrollbar-track{
+  width: 5px;
+}
+.box-opes::-webkit-scrollbar-thumb{
+  width: 5px ;
+  background-color: var(--second-color);
+  border-radius: 5px;
+}
+.ope{
+  background-color: var(--main-color);
+  border-radius: 10px;
 }
 footer {
   clear: both;
