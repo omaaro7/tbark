@@ -406,7 +406,7 @@ function editOperation() {
           );
           showOpeType(
             document.querySelector("#upd-ope-up"),
-            document.querySelector("opeShowerMain.edit")
+            document.querySelector(".opeShowerMain.edit")
           );
           sendData();
           closer.addEventListener("click", () => {

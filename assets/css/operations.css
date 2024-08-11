@@ -222,17 +222,20 @@ form button:hover {
 
 .item,
 .itm {
-  background-color: var(--fourth-color);
-  color: var(--titles-color);
+  background-color: var(--eight-color);
+  color: var(--main-color);
   border-radius: 10px;
-  border: 2px solid var(--fourth-color);
+  border: 2px solid var(--eight-color);
   cursor: pointer;
   transition: all 0.7s;
 }
 .item:hover,
 .itm:hover {
   background-color: transparent;
-  color: var(--fourth-color);
+  color: var(--eight-color);
+}
+.f-item .f-item-content{
+  text-align: center;
 }
 .edit-main {
   height: 100vh;

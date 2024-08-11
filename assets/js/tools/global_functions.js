@@ -60,7 +60,9 @@ export const showShopSimCards = async (clicker, box, func, t)  => {
   }
 //show operation types in form
 export const   showOpeType = async (clicker, box) =>  {
-    let itms = document.querySelectorAll(".opeShower .item");
+  console.log(clicker,box);
+    let itms = Array.from(box.firstElementChild.childNodes);
+    
     clicker.addEventListener("click", (e) => {
       box.classList.replace("d-none", "d-flex");
       box.style.zIndex = "10000";
